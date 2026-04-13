@@ -101,7 +101,7 @@ function resetNav() {
 
 function addButtons(){
   resetNav();
-  const projBtn = document.getElementById('proj-btn');
+  const projBtn = document.getElementById('skills-btn');
   if (projBtn) projBtn.classList.add('active-nav');
 
 const newContent = document.getElementById('new-content');
@@ -136,7 +136,7 @@ const newContent = document.getElementById('new-content');
 
   function addAbout(){
     resetNav();
-    const projBtn = document.getElementById('proj-btn');
+    const projBtn = document.getElementById('about-btn');
     if (projBtn) projBtn.classList.add('active-nav');
 
 const newContent = document.getElementById('new-content');
@@ -169,7 +169,7 @@ const newContent = document.getElementById('new-content');
   
       function addproject(){
           resetNav();
-          const projBtn = document.getElementById('proj-btn');
+          const projBtn = document.getElementById('project-btn');
           if (projBtn) projBtn.classList.add('active-nav');
 
       const newContent = document.getElementById('new-content');
@@ -267,6 +267,8 @@ function addGraphicDesignGallery() {
    
   function adddiv1(){
             resetNav();
+            const eduBtn = document.getElementById('education-btn');
+            if (eduBtn) eduBtn.classList.add('active-nav');
    const newContent = document.getElementById('new-content');
    newContent.innerHTML=`
    <div class="joel">
@@ -285,6 +287,8 @@ function addGraphicDesignGallery() {
    
   function adddiv1(){
             resetNav();
+            const eduBtn = document.getElementById('education-btn');
+            if (eduBtn) eduBtn.classList.add('active-nav');
    const newContent = document.getElementById('new-content');
    newContent.innerHTML=`
    <style>
