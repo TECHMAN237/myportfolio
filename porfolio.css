@@ -220,8 +220,8 @@ img:hover {
   background-color: rgb(154, 154, 154);
 }
 #li a:focus {
-  background-color: rgb(209, 92, 8);
-  color: rgb(255, 255, 255);
+  background-color: white;
+  color: black;
 }
 
 #li a.active-nav {
@@ -236,8 +236,8 @@ img:hover {
 
 
 .blue:focus {
-  background-color: rgb(64, 36, 150);
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 div.footer {
