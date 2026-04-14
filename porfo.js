@@ -38,7 +38,7 @@ function renderSubContent(title, placeholder) {
 }
 
 function addpro(){
-  renderSubContent("In TECHFields", "<p>I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. I am passionate about technology and constantly learning new skills to stay updated with the latest trends in the industry.</p><ul><li>[Skill 1]</li><li>[Skill 2]</li><li>[Experience...]</li></ul>");
+  renderSubContent("In TECHFields", "<p>I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. I am passionate about technology and constantly learning new skills to stay updated with the latest trends in the industry.</p><ul><li>[web Developement and Design]</li><li>[Mobile Dev]</li></ul>");
 } 
 
 function addlinks(){
