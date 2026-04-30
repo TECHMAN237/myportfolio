@@ -4,50 +4,70 @@
     <meta charset="UTF-8" />
     <title>Tech</title>
 </head>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-div.gal{
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f5f2;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Inter', sans-serif;
+  color: rgb(209, 92, 8);
+  font-weight: 800;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+div.gal, .tut, .soap, .first {
   margin: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   float: left;
-  width: 100px;
+  transition: border-color 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
 }
-div.gal:hover {
-    border: 1px solid #777;
+div.gal { width: 100px; }
+.tut { width: 175px; }
+.soap { width: 140px; }
+.first { width: 115px; }
+
+div.gal:hover, .tut:hover, .soap:hover, .first:hover,
+div#modi:hover {
+  border-color: rgb(209, 92, 8);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(209, 92, 8, 0.2);
 }
-    div.gallery img {
+div.gal:active, .tut:active, .soap:active, .first:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+div.gallery img {
   width: 100%;
   height: auto;
 }
-div.des{
+
+div.des {
   padding: 5px;
   text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #555;
 }
-.des{
-    font-size: 8;
-}
-.tut{
-    margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 175px;
-}
-.soap{
-    margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 140px;  
-}
-.first{
-    margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 115px;  
-}
-div#modi:hover{
-    border: 1px solid #777;
-}
-div.center{
-    margin: auto;
+
+div.center {
+  margin: auto;
 }
 </style>
 <body>

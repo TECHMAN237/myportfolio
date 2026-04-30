@@ -10,25 +10,38 @@ function renderSubContent(title, placeholder) {
   .card-template {
     width: 100%;
     max-width: 800px;
-    background-color: rgba(246, 242, 242, 0.85);
+    background-color: rgba(246, 242, 242, 0.88);
     border-radius: 20px;
-    padding: 30px 40px;
+    padding: 32px 42px;
     margin: 0;
     box-sizing: border-box;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    font-family: 'Inter', sans-serif;
   }
   .card-template h1 {
     color: rgb(209, 92, 8);
-    font-size: 2.2rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid rgba(209, 92, 8, 0.3);
-    padding-bottom: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 18px;
+    margin-top: 0;
+    border-bottom: 2px solid rgba(209, 92, 8, 0.25);
+    padding-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .card-template h2, .card-template h3 {
+    color: rgb(180, 75, 0);
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
   }
   .card-template p, .card-template ul {
     color: #333;
-    font-size: 1.1rem;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
   }
+  .card-template ul { padding-left: 1.4rem; }
+  .card-template li { margin-bottom: 6px; }
   </style>
   <div class="card-template">
     <h1>${title}</h1>
@@ -38,7 +51,196 @@ function renderSubContent(title, placeholder) {
 }
 
 function addpro(){
-  renderSubContent("In TECHFields", "<p>I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. I am passionate about technology and constantly learning new skills to stay updated with the latest trends in the industry.</p><ul><li>[web Developement and Design]</li><li>[Mobile Dev]</li></ul>");
+  let targetContainer = document.getElementById('sub-content');
+  if (!targetContainer) {
+      targetContainer = document.getElementById('new-content');
+  }
+
+  const projects = [
+    {
+      name: "SAFECHILD",
+      description: "A project designed to reduce the rate of missing children in our community",
+      url: "https://safechild.vercel.app/",
+      icon: "🛡️"
+    },
+    {
+      name: "MY PORTFOLIO",
+      description: "The website in which you are navigating actually — built to show my competence to the world",
+      url: "https://myportfolio-alpha-pearl.vercel.app/",
+      icon: "🌐"
+    },
+    {
+      name: "DEVOPS DEV PORTFOLIO",
+      description: "Assisting an elder in the tech domain to build his portfolio website",
+      url: "https://portfolio-apollos.vercel.app/",
+      icon: "👨‍💻"
+    },
+    {
+      name: "GO CLONE",
+      description: "Aiming to clone the website of my university campus",
+      url: "https://student-portal-seven-nu.vercel.app/",
+      icon: "🎓"
+    },
+    {
+      name: "ROCK ATTITUDE SHOWCASE WEBSITE",
+      description: "A website to be delivered to the enterprise of Rock Attitude",
+      url: "https://rock-attitude-website.vercel.app/",
+      icon: "🎸"
+    }
+  ];
+
+  const projectCards = projects.map((proj, i) => `
+    <a href="${proj.url}" target="_blank" rel="noopener noreferrer" class="tf-project-card" style="text-decoration:none;">
+      <div class="tf-card-number">${String(i + 1).padStart(2, '0')}</div>
+      <div class="tf-card-icon">${proj.icon}</div>
+      <h3 class="tf-card-title">${proj.name}</h3>
+      <p class="tf-card-desc">${proj.description}</p>
+      <span class="tf-card-link">Visit Project →</span>
+    </a>
+  `).join('');
+
+  targetContainer.innerHTML = `
+  <style>
+    .tf-wrapper {
+      width: 100%;
+      max-width: 820px;
+      background: linear-gradient(135deg, rgba(246,242,242,0.92), rgba(255,255,255,0.85));
+      border-radius: 22px;
+      padding: 32px 28px 28px;
+      box-sizing: border-box;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      font-family: 'Inter', sans-serif;
+      max-height: calc(100vh - 300px);
+      overflow-y: auto;
+    }
+    .tf-wrapper h1 {
+      color: rgb(209, 92, 8);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin: 0 0 8px;
+      letter-spacing: -0.5px;
+    }
+    .tf-wrapper .tf-intro {
+      color: #444;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid rgba(209,92,8,0.15);
+    }
+    .tf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .tf-project-card {
+      position: relative;
+      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(246,240,235,0.80));
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(209,92,8,0.12);
+      border-radius: 16px;
+      padding: 22px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: transform 0.3s cubic-bezier(.22,.68,0,1.1),
+                  box-shadow 0.3s ease,
+                  border-color 0.3s ease;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      overflow: hidden;
+      text-decoration: none !important;
+    }
+    .tf-project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 4px;
+      background: linear-gradient(90deg, rgb(209,92,8), rgb(255,160,60));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .tf-project-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 12px 28px rgba(209,92,8,0.18);
+      border-color: rgba(209,92,8,0.35);
+    }
+    .tf-project-card:hover::before {
+      opacity: 1;
+    }
+    .tf-card-number {
+      position: absolute;
+      top: 12px; right: 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(209,92,8,0.3);
+      letter-spacing: 1px;
+    }
+    .tf-card-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+      transition: transform 0.3s ease;
+    }
+    .tf-project-card:hover .tf-card-icon {
+      transform: scale(1.15) rotate(-5deg);
+    }
+    .tf-card-title {
+      color: rgb(209,92,8) !important;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin: 0 0 8px;
+      letter-spacing: 0.3px;
+      line-height: 1.3;
+    }
+    .tf-card-desc {
+      color: #555 !important;
+      font-size: 0.82rem;
+      line-height: 1.55;
+      margin: 0 0 14px;
+      flex: 1;
+    }
+    .tf-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: rgb(209,92,8) !important;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(209,92,8,0.08);
+      align-self: flex-start;
+      transition: background 0.25s ease, transform 0.2s ease, color 0.25s ease;
+    }
+    .tf-project-card:hover .tf-card-link {
+      background: rgb(209,92,8);
+      color: #fff !important;
+      transform: translateX(3px);
+    }
+    @media (max-width: 768px) {
+      .tf-grid {
+        grid-template-columns: 1fr;
+      }
+      .tf-wrapper {
+        padding: 20px 16px 18px;
+        max-height: none;
+      }
+    }
+  </style>
+  <div class="tf-wrapper">
+    <h1>In TECHFields</h1>
+    <p class="tf-intro">
+      I am a computer science student with a strong foundation in programming and software development.
+      I have experience in web development, mobile application development, and database management.
+      Below are some of the projects I have built:
+    </p>
+    <div class="tf-grid">
+      ${projectCards}
+    </div>
+  </div>
+  `;
 } 
 
 function addlinks(){
@@ -232,14 +434,16 @@ function addGraphicDesignGallery() {
               flex-wrap: wrap;
               justify-content: center;
               gap: 20px;
-              padding: 20px;
-              min-height: 400px;
+              padding: 20px 20px 30px;
               width: 100%;
               max-width: 800px;
               background-color: rgba(255, 255, 255, 0.6);
               border-radius: 20px;
               z-index: 0;
+              /* Stop before the fixed footer (~90px) + some breathing room */
+              max-height: calc(100vh - 280px);
               overflow-y: auto;
+              box-sizing: border-box;
           }
           .gal-item {
               display: flex;
@@ -292,17 +496,44 @@ function addGraphicDesignGallery() {
    const newContent = document.getElementById('new-content');
    newContent.innerHTML=`
    <style>
-   .san{
-  height: 450px;
-  width:100%;
-  max-width: 800px;
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius:30px;
-  padding:20px;
-  margin: 0 auto;
-  overflow-y: scroll;
-  }
-
+   .san {
+     height: 450px;
+     width: 100%;
+     max-width: 800px;
+     background-color: rgba(246, 242, 242, 0.88);
+     border-radius: 20px;
+     padding: 28px 36px;
+     margin: 0 auto;
+     overflow-y: auto;
+     box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+     font-family: 'Inter', sans-serif;
+     box-sizing: border-box;
+   }
+   .san h1 {
+     color: rgb(209, 92, 8);
+     font-family: 'Inter', sans-serif;
+     font-weight: 800;
+     font-size: 1.8rem;
+     margin-bottom: 16px;
+     border-bottom: 2px solid rgba(209, 92, 8, 0.25);
+     padding-bottom: 10px;
+     letter-spacing: -0.5px;
+   }
+   .san h2 {
+     color: rgb(180, 75, 0);
+     font-family: 'Inter', sans-serif;
+     font-weight: 700;
+     font-size: 1.15rem;
+     margin: 14px 0 8px;
+   }
+   .san h3 {
+     color: #444;
+     font-family: 'Inter', sans-serif;
+     font-weight: 500;
+     font-size: 1rem;
+   }
+   .san ul { padding-left: 1.4rem; }
+   .san li { margin-bottom: 6px; line-height: 1.6; }
    </style>
    <div class="san">
   <h1>EDUCATIONAL BACKGROUND</h1><br><br>
@@ -334,36 +565,47 @@ function addGraphicDesignGallery() {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
-        padding: 20px;
+        gap: 16px;
+        padding: 24px;
         min-height: 300px;
         width: 100%;
         max-width: 800px;
-        background-color: rgba(255, 255, 255, 0.6);
+        background-color: rgba(246, 242, 242, 0.88);
         border-radius: 20px;
         overflow-y: auto;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+        font-family: 'Inter', sans-serif;
+        box-sizing: border-box;
       }
-
       .vid-container .thumb {
-    width: 120px;
-    height: 80px; /* Ajoute une hauteur pour la régularité */
-    object-fit: cover; /* Pour que l'image ne soit pas déformée */
-    cursor: pointer;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-
-      .vid-container video {
-        width: 120px;
+        width: 130px;
+        height: 86px;
+        object-fit: cover;
         cursor: pointer;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        transition: transform 0.3s ease;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        border: 2px solid transparent;
+      }
+      .vid-container .thumb:hover {
+        transform: scale(1.07) translateY(-3px);
+        box-shadow: 0 8px 20px rgba(209, 92, 8, 0.3);
+        border-color: rgba(209, 92, 8, 0.5);
+      }
+      .vid-container .thumb:active {
+        transform: scale(1.02) translateY(0);
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+      }
+      .vid-container video {
+        width: 130px;
+        cursor: pointer;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
       }
       .vid-container video:hover {
-        transform: scale(1.05);
+        transform: scale(1.07) translateY(-3px);
+        box-shadow: 0 8px 20px rgba(209, 92, 8, 0.3);
       }
     </style>
     <div class="vid-container">
@@ -395,11 +637,25 @@ function addGraphicDesignGallery() {
       position:absolute;
       top:20px;
       right:20px;
-      font-size:20px;
-      background:white;
+      font-size:18px;
+      font-family:'Inter',sans-serif;
+      font-weight:600;
+      background:rgb(209,92,8);
+      color:#fff;
       border:none;
+      border-radius:50%;
+      width:40px;
+      height:40px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       cursor:pointer;
-    ">✖</button>
+      transition:background 0.25s ease,transform 0.2s ease;
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    " onmouseover="this.style.background='rgb(170,70,0)';this.style.transform='scale(1.1)'"
+       onmouseout="this.style.background='rgb(209,92,8)';this.style.transform='scale(1)'"
+       onmousedown="this.style.transform='scale(0.95)'"
+       onmouseup="this.style.transform='scale(1.1)'">✕</button>
 
   </div>
   `;
@@ -415,8 +671,8 @@ function addGraphicDesignGallery() {
     newContent.innerHTML=`
     <div class="joel">
       <h1>Hi i am </h1>
-  <P class="techman-title"><b>TECHMAN</b></P>
-  <h2><center>A computer science level300 student in UB in the Faculty of science</center></h2>
+  <p class="techman-title"><b>TECHMAN</b></p>
+  <h2 style="font-family:'Inter',sans-serif;font-weight:600;color:rgb(180,75,0);text-align:center;font-size:1.15rem;margin-top:8px;">A Computer Science Level 300 Student at the University of Buea</h2>
   
     
   `;
