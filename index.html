@@ -29,25 +29,25 @@
     <div class="bar"></div>
     <nav>
         <ul class="nav">
-            <li><a href="#" id="home-btn" onclick="addhome()" class="blue">Home</a></li>
-            <li><a href="#" id="about-btn"  onclick="addAbout()">About Me</a></li>
-            <li><a href="#" id="skills-btn" onclick="addButtons()">Skills</a></li>
-            <li><a href="#" id="project-btn" onclick="addproject()">Projects And Experiences</a></li>
-            <li><a href="#" id="education-btn" onclick="adddiv1()">Education</a></li>
+            <li><a href="#" id="home-btn" onclick="addhome()" class="blue" data-i18n="nav_home">Home</a></li>
+            <li><a href="#" id="about-btn" onclick="addAbout()" data-i18n="nav_about">About Me</a></li>
+            <li><a href="#" id="skills-btn" onclick="addButtons()" data-i18n="nav_skills">Skills</a></li>
+            <li><a href="#" id="project-btn" onclick="addproject()" data-i18n="nav_projects">Projects And Experiences</a></li>
+            <li><a href="#" id="education-btn" onclick="adddiv1()" data-i18n="nav_education">Education</a></li>
         </ul>
+        <button id="lang-switch" class="lang-btn" onclick="toggleLanguage()">🇫🇷 FR</button>
     </nav>
    
     <div id="new-content"></div>
     <footer><div class="footer"> 
         <ul class="foot">
-                <li><h3>Contact me</h3></li>
+                <li><h3 data-i18n="footer_contact">Contact me</h3></li>
                 <li class="la"><a href="https://www.linkedin.com/in/steeve-zali-5a70b6379" target="_blank"><img src="link.jpg" style="height:25px;width:25px; border-radius:50%;"></a></li>
                 <li class="la"><a href="tel:+237697368251" target="_blank"><img src="phone.jpg" style="height:25px;width:25px; border-radius:50%;"></a></li>
                 <li class="la"><a href="https://wa.me/+237697368251" target="_blank"><img src="whats.jpg" style="height:25px;width:25px; border-radius:50%;"></a></li>
                 <li class="la"><a href="https://github.com/TECHMAN237" target="_blank"><img src="Gemini_Generated_Image_azpqw0azpqw0azpq.png" style="height:35px;width:35px; border-radius:50%;"></a></li>
-                <li><a class="tos" href="ZALI.pdf" download="ZALI.pdf">Download C.V</a></li>
-                <li><a class="tes" href="testimonials.html">Testimonials</a></li>
-             
+                <li><a class="tos" href="ZALI.pdf" download="ZALI.pdf" data-i18n="footer_cv">Download C.V</a></li>
+                <li><a class="tes" href="testimonials.html" data-i18n="footer_testimonials">Testimonials</a></li>
         </ul>
     
     </div>

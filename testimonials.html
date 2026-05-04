@@ -245,6 +245,25 @@
             .testimonial-card { padding: 28px 20px 22px; }
             .back-btn { margin: 20px 0 0 16px; }
         }
+
+        /* Language Button */
+        .lang-btn {
+            background-color: rgba(255, 255, 255, 0.12);
+            color: #d4a8ff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -254,14 +273,18 @@
     </div>
 
     <div class="main-content">
-        <!-- Back to portfolio -->
-        <a class="back-btn" href="index.html">&#8592; Back to Portfolio</a>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-right: 30px;">
+            <!-- Back to portfolio -->
+            <a class="back-btn" href="index.html" data-i18n="test_back">&#8592; Back to Portfolio</a>
+            <!-- Language Switcher -->
+            <button id="lang-switch" class="lang-btn" onclick="toggleLanguage()" style="margin-top: 30px;">🇫🇷 FR</button>
+        </div>
 
         <!-- Header -->
         <header class="page-header">
-            <div class="label">Testimonials</div>
-            <h1>What People Say</h1>
-            <p>A few honest words from people I've had the pleasure of working with.</p>
+            <div class="label" data-i18n="test_label">Testimonials</div>
+            <h1 data-i18n="test_title">What People Say</h1>
+            <p data-i18n="test_desc">A few honest words from people I've had the pleasure of working with.</p>
             <div class="header-divider"></div>
         </header>
 
@@ -279,7 +302,7 @@
                     <img class="author-avatar" src="IMG_20250429_094057_312.jpg" alt="Asaph">
                     <div>
                         <div class="author-name">Asaph N.</div>
-                        <div class="author-role">Client – Graphic Design</div>
+                        <div class="author-role" data-i18n="test_role1">Client – Graphic Design</div>
                     </div>
                 </div>
             </div>
@@ -294,7 +317,7 @@
                     <div class="author-avatar-placeholder">P</div>
                     <div>
                         <div class="author-name">LAURENT</div>
-                        <div class="author-role">Batch mate</div>
+                        <div class="author-role" data-i18n="test_role2">Batch mate</div>
                     </div>
                 </div>
             </div>
@@ -309,7 +332,7 @@
                     <img class="author-avatar" src="KOM.jpg" alt="Name">
                     <div>
                         <div class="author-name">KOMZE WILLIAM</div>
-                        <div class="author-role">Business Partner</div>
+                        <div class="author-role" data-i18n="test_role3">Business Partner</div>
                     </div>
                 </div>
             </div>
@@ -323,7 +346,7 @@
                     <img class="author-avatar" src="ARIEL.jpeg" alt="Name">
                     <div>
                         <div class="author-name">ARIEL KAFTO</div>
-                        <div class="author-role">Friend</div>
+                        <div class="author-role" data-i18n="test_role4">Friend</div>
                     </div>
                 </div>
             </div>
@@ -337,7 +360,7 @@
                     <img class="author-avatar" src="ANGE.jpg" alt="Name">
                     <div>
                         <div class="author-name">ANGE YOUMSI</div>
-                        <div class="author-role">Client</div>
+                        <div class="author-role" data-i18n="test_role5">Client</div>
                     </div>
                 </div>
             </div>
@@ -351,7 +374,7 @@
                     <img class="author-avatar" src="JORDAN.jpg" alt="Name">
                     <div>
                         <div class="author-name">JORDAN AZAPGUE</div>
-                        <div class="author-role">Senior</div>
+                        <div class="author-role" data-i18n="test_role6">Senior</div>
                     </div>
                 </div>
             </div>
@@ -359,9 +382,62 @@
         </section>
 
         <footer class="page-footer">
-            <p>&copy; 2025 TECHMAN &mdash; <a href="index.html">Back to Portfolio</a></p>
+            <p>&copy; 2025 TECHMAN &mdash; <a href="index.html" data-i18n="test_back2">Back to Portfolio</a></p>
         </footer>
     </div>
 
+    <script>
+        const translations = {
+            en: {
+                test_back: "&#8592; Back to Portfolio",
+                test_label: "Testimonials",
+                test_title: "What People Say",
+                test_desc: "A few honest words from people I've had the pleasure of working with.",
+                test_role1: "Client – Graphic Design",
+                test_role2: "Batch mate",
+                test_role3: "Business Partner",
+                test_role4: "Friend",
+                test_role5: "Client",
+                test_role6: "Senior",
+                test_back2: "Back to Portfolio"
+            },
+            fr: {
+                test_back: "&#8592; Retour au Portfolio",
+                test_label: "Témoignages",
+                test_title: "Ce qu'ils disent",
+                test_desc: "Quelques mots honnêtes de personnes avec qui j'ai eu le plaisir de travailler.",
+                test_role1: "Client – Design Graphique",
+                test_role2: "Camarade de promotion",
+                test_role3: "Partenaire d'affaires",
+                test_role4: "Ami",
+                test_role5: "Client",
+                test_role6: "Aîné",
+                test_back2: "Retour au Portfolio"
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            const langBtn = document.getElementById('lang-switch');
+            if(langBtn) {
+                langBtn.innerHTML = currentLang === 'en' ? '🇫🇷 FR' : '🇬🇧 EN';
+            }
+        }
+
+        window.toggleLanguage = function() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            localStorage.setItem('lang', currentLang);
+            updateLanguage();
+        }
+
+        window.addEventListener('DOMContentLoaded', updateLanguage);
+    </script>
 </body>
 </html>

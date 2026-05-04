@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAFECHILD - Access Credentials</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* CSS reset and base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f1115; /* Dark/Black background */
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Abstract background elements */
+        .bg-shape {
+            position: absolute;
+            filter: blur(100px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .bg-shape.blue {
+            width: 450px;
+            height: 450px;
+            background: rgba(37, 99, 235, 0.35); /* Blue */
+            top: -100px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite alternate;
+        }
+
+        .bg-shape.orange {
+            width: 550px;
+            height: 550px;
+            background: rgba(249, 115, 22, 0.25); /* Orange */
+            bottom: -150px;
+            right: -150px;
+            animation: float 10s ease-in-out infinite alternate-reverse;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 60px) scale(1.1); }
+        }
+
+        /* Card Container */
+        .card {
+            background: rgba(20, 24, 33, 0.65);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 28px;
+            padding: 50px 45px;
+            width: 100%;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 40px rgba(37, 99, 235, 0.15);
+            position: relative;
+            z-index: 10;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            margin: 20px;
+        }
+
+        @keyframes slideUp {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Typography */
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            display: inline-block;
+            background: linear-gradient(135deg, #f97316, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            color: #fff;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        /* Credentials Section */
+        .credentials {
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 35px;
+            text-align: left;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .cred-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .cred-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .cred-label {
+            display: block;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #94a3b8;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .cred-value-container {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cred-value-container:hover {
+            border-color: rgba(249, 115, 22, 0.4); /* Orange border on hover */
+            background: rgba(249, 115, 22, 0.05);
+            box-shadow: 0 4px 15px rgba(249, 115, 22, 0.1);
+        }
+
+        .cred-value {
+            font-family: 'Inter', monospace;
+            font-size: 1.15rem;
+            color: #f8fafc;
+            flex-grow: 1;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f97316; /* Orange icon */
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .copy-btn:hover {
+            background: #f97316;
+            color: #fff;
+            transform: scale(1.05);
+            border-color: #f97316;
+            box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+        }
+
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .copy-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        /* Action Button */
+        .btn-continue {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8); /* Blue button */
+            color: white;
+            text-decoration: none;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-continue::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transition: all 0.6s ease;
+        }
+
+        .btn-continue:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.6), inset 0 1px 0 rgba(255,255,255,0.3);
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .btn-continue:hover::before {
+            left: 100%;
+        }
+
+        .btn-continue:active {
+            transform: translateY(1px);
+            box-shadow: 0 5px 10px -5px rgba(37, 99, 235, 0.5);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #10b981; /* Green for success */
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Add a "go back" link */
+        .go-back {
+            display: inline-block;
+            margin-top: 24px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .go-back:hover {
+            color: #cbd5e1;
+            text-decoration: underline;
+        }
+        /* Language Button */
+        .lang-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        .lang-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Effects -->
+    <div class="bg-shape blue"></div>
+    <div class="bg-shape orange"></div>
+
+    <div class="card">
+        <button id="lang-switch" class="lang-btn" onclick="toggleLanguage()">🇬🇧 EN</button>
+        <div class="card-icon">🛡️</div>
+        <h1>SAFECHILD</h1>
+        <p class="subtitle" data-i18n="safe_sub">Veuillez utiliser ces informations de connexion pour accéder à la plateforme.</p>
+
+        <div class="credentials">
+            <div class="cred-group">
+                <span class="cred-label" data-i18n="safe_email_label">Adresse Email</span>
+                <div class="cred-value-container">
+                    <span class="cred-value" id="emailVal">user@test.com</span>
+                    <button class="copy-btn" onclick="copyEmail()" title="Copier l'email" id="copy-email-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="cred-group">
+                <span class="cred-label" data-i18n="safe_pass_label">Mot de passe</span>
+                <div class="cred-value-container">
+                    <span class="cred-value" id="passVal">user123</span>
+                    <button class="copy-btn" onclick="copyPass()" title="Copier le mot de passe" id="copy-pass-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://safechild.vercel.app/" class="btn-continue" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="safe_continue">Continuer vers Safechild</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+        </a>
+
+        <a href="index.html" class="go-back" data-i18n="safe_back">← Retour au portfolio</a>
+    </div>
+
+    <div class="toast" id="toast">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span id="toast-msg">Copié au presse-papier !</span>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                safe_sub: "Please use these login credentials to access the platform.",
+                safe_email_label: "Email Address",
+                safe_pass_label: "Password",
+                safe_continue: "Continue to Safechild",
+                safe_back: "← Back to portfolio",
+                copy_email_title: "Copy email",
+                copy_pass_title: "Copy password",
+                msg_email: "Email address copied!",
+                msg_pass: "Password copied!"
+            },
+            fr: {
+                safe_sub: "Veuillez utiliser ces informations de connexion pour accéder à la plateforme.",
+                safe_email_label: "Adresse Email",
+                safe_pass_label: "Mot de passe",
+                safe_continue: "Continuer vers Safechild",
+                safe_back: "← Retour au portfolio",
+                copy_email_title: "Copier l'email",
+                copy_pass_title: "Copier le mot de passe",
+                msg_email: "Adresse e-mail copiée !",
+                msg_pass: "Mot de passe copié !"
+            }
+        };
+
+        let currentLang = localStorage.getItem('lang') || 'en';
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+            const langBtn = document.getElementById('lang-switch');
+            if(langBtn) {
+                langBtn.innerHTML = currentLang === 'en' ? '🇫🇷 FR' : '🇬🇧 EN';
+            }
+            
+            document.getElementById('copy-email-btn').title = translations[currentLang].copy_email_title;
+            document.getElementById('copy-pass-btn').title = translations[currentLang].copy_pass_title;
+        }
+
+        window.toggleLanguage = function() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            localStorage.setItem('lang', currentLang);
+            updateLanguage();
+        }
+
+        window.addEventListener('DOMContentLoaded', updateLanguage);
+
+        function copyEmail() {
+            const text = document.getElementById('emailVal').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(translations[currentLang].msg_email);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function copyPass() {
+            const text = document.getElementById('passVal').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(translations[currentLang].msg_pass);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            
+            toastMsg.innerText = message;
+            toast.classList.add('show');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

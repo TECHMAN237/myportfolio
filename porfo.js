@@ -1,3 +1,69 @@
+const translations = {
+  en: {
+    nav_home: "Home", nav_about: "About Me", nav_skills: "Skills", nav_projects: "Projects And Experiences", nav_education: "Education", footer_contact: "Contact me", footer_cv: "Download C.V", footer_testimonials: "Testimonials",
+    home_hi: "Hi i am ", home_desc: "A Computer Science Level 300 Student at the University of Buea",
+    edu_title: "EDUCATIONAL BACKGROUND", edu_academic: "ACADEMIC-BACKGROUND", edu_gce: "I have obtained my GCE Avance Level in 2024 at IMHOTEP GREAT SCHOOL", edu_uni: "Currently Enrolled at the University of buea studying a Computer science under the faculty of science for a Bsc program", edu_other: "OTHER SOURCES",
+    proj_tech: "In TECHFields", proj_graphic: "In Graphic Design", proj_video: "In Video Editing", proj_teach: "In Teaching Field", proj_content: "As Content Creator", proj_desc: "I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. Below are some of the projects I have built:", proj_visit: "Visit Project →",
+    pt_safechild_desc: "A project designed to reduce the rate of missing children in our community", pt_portfolio_desc: "The website in which you are navigating actually — built to show my competence to the world", pt_devops_desc: "Assisting an elder in the tech domain to build his portfolio website", pt_goclone_desc: "Aiming to clone the website of my university campus", pt_rock_desc: "A website to be delivered to the enterprise of Rock Attitude",
+    skill_tech: "TECHFields", skill_graphic: "Graphic Design", skill_video: "Video Editing", skill_teach: "Teaching Field", skill_content: "Content Creation",
+    skill_tech_desc: "<p>I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. I am passionate about technology and constantly learning new skills to stay updated with the latest trends in the industry.</p>",
+    skill_graphic_desc: `<p>Master Design Softwares Like:</p><div style="margin-top: 15px;"><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">💻 On PC</h4><ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;"><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Figma</li><li>Canva</li></ul><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">📱 On Phone (Android & iOS)</h4><ul style="list-style-type: disc; margin-left: 20px;"><li>POSTMYWALL</li><li>CANVA</li><li>FLYERS MAKER</li><li>PIXELLAB</li></ul></div>`,
+    skill_video_desc: `<p>Master in Video Software such as:</p><div style="margin-top: 15px;"><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">💻 On PC</h4><ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;"><li>Adobe Premiere Pro</li><li>Capcut Pro</li><li>Kinemaster</li></ul><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">📱 On Phone (Android & iOS)</h4><ul style="list-style-type: disc; margin-left: 20px;"><li>Capcut Pro</li><li>Kinemaster Pro</li><li>Inshot</li><li>YouCut</li></ul></div>`,
+    skill_teach_desc: "<p>I am a teacher with a passion for teaching and helping students learn. I have experience in teaching mathematics, science, and computer science to students of all ages. I am passionate about creating a positive and supportive learning environment for my students.</p>",
+    skill_content_desc: "<p>I am a content creator with a passion for creating engaging and informative content. I have experience in video editing, graphic design, and social media management. I am passionate about creating content that helps people learn and grow.</p>",
+    about_who: "Who Am I", about_passion: "Passion and Interest", about_career: "Career Goal",
+    about_who_desc: "<p>Hello! I am Steeve Zali (also known as TECHMAN), a dynamic and innovation-driven Level 300 Computer Science student at the University of Buea. I specialize in applying technology to solve real-world problems and creating engaging digital content.</p><br><p>With a strong background in graphic design and video editing alongside my academic pursuits in computer science, I blend technical analytical skills with creative thinking to deliver professional and unique solutions.</p>",
+    about_passion_desc: "<p>My deepest passions lie at the intersection of technology, creative design, and community impact. I am fascinated by software development, visual aesthetics, and the power of digital media to communicate powerful stories.</p><br><p>When I am not coding or studying, you will find me designing flyers, editing high-quality videos, learning new creative tools, or collaborating with peers to brainstorm exciting tech projects.</p>",
+    about_career_desc: "<p>In the short term, I aim to graduate with top honors in Computer Science while continuing to expand my portfolio as a freelance creative designer and video editor.</p><br><p>My long-term career ambition is to become a versatile Software Engineer and Tech Director, building innovative technological products while leading creative campaigns that leave a lasting impact on society.</p>"
+  },
+  fr: {
+    nav_home: "Accueil", nav_about: "À Propos", nav_skills: "Compétences", nav_projects: "Projets & Expériences", nav_education: "Éducation", footer_contact: "Contactez-moi", footer_cv: "Télécharger mon C.V", footer_testimonials: "Témoignages",
+    home_hi: "Salut je suis ", home_desc: "Étudiant de niveau 300 en Informatique à l'Université de Buea",
+    edu_title: "PARCOURS ÉDUCATIF", edu_academic: "FORMATION ACADÉMIQUE", edu_gce: "J'ai obtenu mon GCE Advanced Level en 2024 à l'IMHOTEP GREAT SCHOOL", edu_uni: "Actuellement inscrit à l'Université de Buea en licence d'Informatique (Faculté des Sciences)", edu_other: "AUTRES SOURCES D'APPRENTISSAGE",
+    proj_tech: "Dans la Tech", proj_graphic: "Design Graphique", proj_video: "Montage Vidéo", proj_teach: "Enseignement", proj_content: "Création de Contenu", proj_desc: "Je suis étudiant en informatique avec de solides bases en programmation et développement logiciel. J'ai de l'expérience en développement web, mobile et gestion de bases de données. Voici quelques-uns de mes projets :", proj_visit: "Voir le projet →",
+    pt_safechild_desc: "Un projet conçu pour réduire le taux d'enfants disparus dans notre communauté", pt_portfolio_desc: "Le site web sur lequel vous naviguez actuellement — conçu pour montrer mes compétences au monde", pt_devops_desc: "Assistance à un aîné du domaine de la tech pour construire son portfolio", pt_goclone_desc: "Projet visant à cloner le site web de mon campus universitaire", pt_rock_desc: "Un site web à livrer à l'entreprise Rock Attitude",
+    skill_tech: "Dans la Tech", skill_graphic: "Design Graphique", skill_video: "Montage Vidéo", skill_teach: "Enseignement", skill_content: "Création de Contenu",
+    skill_tech_desc: "<p>Je suis étudiant en informatique avec de solides bases en programmation et développement logiciel. J'ai de l'expérience en développement web, mobile et gestion de bases de données. Je suis passionné par la technologie et j'apprends constamment de nouvelles compétences pour rester à jour.</p>",
+    skill_graphic_desc: `<p>Maîtrise des logiciels de design tels que :</p><div style="margin-top: 15px;"><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">💻 Sur PC</h4><ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;"><li>Adobe Photoshop</li><li>Adobe Illustrator</li><li>Figma</li><li>Canva</li></ul><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">📱 Sur Téléphone (Android et iOS)</h4><ul style="list-style-type: disc; margin-left: 20px;"><li>POSTMYWALL</li><li>CANVA</li><li>FLYERS MAKER</li><li>PIXELLAB</li></ul></div>`,
+    skill_video_desc: `<p>Maîtrise des logiciels vidéo tels que :</p><div style="margin-top: 15px;"><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">💻 Sur PC</h4><ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 15px;"><li>Adobe Premiere Pro</li><li>Capcut Pro</li><li>Kinemaster</li></ul><h4 style="color: rgb(209, 92, 8); margin-bottom: 8px;">📱 Sur Téléphone (Android et iOS)</h4><ul style="list-style-type: disc; margin-left: 20px;"><li>Capcut Pro</li><li>Kinemaster Pro</li><li>Inshot</li><li>YouCut</li></ul></div>`,
+    skill_teach_desc: "<p>Je suis un enseignant passionné par l'apprentissage de mes élèves. J'ai de l'expérience dans l'enseignement des mathématiques, des sciences et de l'informatique à des élèves de tous âges.</p>",
+    skill_content_desc: "<p>Je suis un créateur de contenu avec une passion pour la création de contenu engageant et informatif. J'ai de l'expérience en montage vidéo, design graphique et gestion des réseaux sociaux.</p>",
+    about_who: "Qui suis-je", about_passion: "Passions et Intérêts", about_career: "Objectifs de Carrière",
+    about_who_desc: "<p>Bonjour ! Je suis Steeve Zali (aussi connu sous le nom de TECHMAN), un étudiant de niveau 300 en Informatique à l'Université de Buea. Je me spécialise dans l'application de la technologie pour résoudre des problèmes concrets.</p><br><p>Avec une solide expérience en conception graphique et montage vidéo, j'allie compétences analytiques et pensée créative pour fournir des solutions professionnelles.</p>",
+    about_passion_desc: "<p>Mes plus grandes passions se situent au croisement de la technologie, du design créatif et de l'impact communautaire. Je suis fasciné par le développement de logiciels, l'esthétique visuelle et le pouvoir des médias numériques.</p><br><p>Quand je ne code pas ou n'étudie pas, vous me trouverez en train de concevoir des flyers, de monter des vidéos, d'apprendre de nouveaux outils créatifs ou de collaborer avec mes pairs.</p>",
+    about_career_desc: "<p>À court terme, je vise à obtenir mon diplôme en informatique avec mention, tout en continuant à enrichir mon portfolio en tant que designer créatif et monteur vidéo indépendant.</p><br><p>Mon ambition professionnelle à long terme est de devenir un ingénieur logiciel polyvalent et un directeur technique.</p>"
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function getT(key) { return translations[currentLang][key] || key; }
+
+window.toggleLanguage = function() {
+  currentLang = currentLang === 'en' ? 'fr' : 'en';
+  localStorage.setItem('lang', currentLang);
+  updateStaticTranslations();
+  const activeNav = document.querySelector('.active-nav');
+  if(activeNav) {
+    activeNav.click();
+  } else {
+    addhome();
+  }
+}
+
+function updateStaticTranslations() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(translations[currentLang] && translations[currentLang][key]) {
+      el.innerHTML = translations[currentLang][key];
+    }
+  });
+  const langBtn = document.getElementById('lang-switch');
+  if(langBtn) {
+    langBtn.innerHTML = currentLang === 'en' ? '🇫🇷 FR' : '🇬🇧 EN';
+  }
+}
+
 
 function renderSubContent(title, placeholder) {
   let targetContainer = document.getElementById('sub-content');
@@ -58,20 +124,20 @@ function addpro(){
 
   const projects = [
     {
-      name: "SAFECHILD",
-      description: "A project designed to reduce the rate of missing children in our community",
-      url: "https://safechild.vercel.app/",
+      name: getT("pt_safechild_name"),
+      description: getT("pt_safechild_desc"),
+      url: "safechild-info.html",
       icon: "🛡️"
     },
     {
-      name: "MY PORTFOLIO",
-      description: "The website in which you are navigating actually — built to show my competence to the world",
+      name: getT("pt_portfolio_name"),
+      description: getT("pt_portfolio_desc"),
       url: "https://myportfolio-alpha-pearl.vercel.app/",
       icon: "🌐"
     },
     {
-      name: "DEVOPS DEV PORTFOLIO",
-      description: "Assisting an elder in the tech domain to build his portfolio website",
+      name: getT("pt_devops_name"),
+      description: getT("pt_devops_desc"),
       url: "https://portfolio-apollos.vercel.app/",
       icon: "👨‍💻"
     },
@@ -95,7 +161,7 @@ function addpro(){
       <div class="tf-card-icon">${proj.icon}</div>
       <h3 class="tf-card-title">${proj.name}</h3>
       <p class="tf-card-desc">${proj.description}</p>
-      <span class="tf-card-link">Visit Project →</span>
+      <span class="tf-card-link">${getT("proj_visit")}</span>
     </a>
   `).join('');
 
@@ -230,11 +296,9 @@ function addpro(){
     }
   </style>
   <div class="tf-wrapper">
-    <h1>In TECHFields</h1>
+    <h1>${getT("proj_tech")}</h1>
     <p class="tf-intro">
-      I am a computer science student with a strong foundation in programming and software development.
-      I have experience in web development, mobile application development, and database management.
-      Below are some of the projects I have built:
+      ${getT("proj_desc")}
     </p>
     <div class="tf-grid">
       ${projectCards}
@@ -244,7 +308,7 @@ function addpro(){
 } 
 
 function addlinks(){
-  renderSubContent("As Content Creator", "<p>I am a content creator with a passion for creating engaging and informative content. I have experience in video editing, graphic design, and social media management. I am passionate about creating content that helps people learn and grow.</p><p></p>");
+  renderSubContent(getT("proj_content"), getT("skill_content_desc"));
 } 
 
 
@@ -318,11 +382,11 @@ const newContent = document.getElementById('new-content');
   `;
   const subMenu = document.getElementById('sub-menu');
         const project=[
-            {text:'TECHFields', url:'javascript:renderSubContent("Skills: TECHFields", "<p>I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. I am passionate about technology and constantly learning new skills to stay updated with the latest trends in the industry.</p>")'},
-            {text:'Graphic Design', url:'javascript:renderSubContent("Skills: Graphic Design", "<p>Master Design Softwares Like :<br>On PC<br>Adobe photoshop <br>Adobe illustrator<br>Figma<br>Canva<br>On Phone (Android et I.O.S)<br>POSTMYWALL<br>CANVA<br>FLYERS MAKER<br>PIXElLAB</p>")'},
-            {text:'Video Editing', url:'javascript:renderSubContent("Skills: Video Editing", "<p>Master in Video Software such as:<br>On PC<br>Adobe premiere pro<br>Capcut Pro<br>Kinemaster<br>On PHONE (Androide et I.O.S)<br>Capcut pro<br>Kinemaster pro<br>Inshot<br>YouCut</p>")'},
-            {text:'Teaching Field', url:'javascript:renderSubContent("Skills: Teaching Field", "<p>I am a teacher with a passion for teaching and helping students learn. I have experience in teaching mathematics, science, and computer science to students of all ages. I am passionate about creating a positive and supportive learning environment for my students.</p>")'},
-            {text:'Content Creation', url:'javascript:renderSubContent("Skills: Content Creation", "<p>I am a content creator with a passion for creating engaging and informative content. I have experience in video editing, graphic design, and social media management. I am passionate about creating content that helps people learn and grow.</p>")'}
+            {text: getT("skill_tech"), url:'javascript:renderSubContent(getT("skill_tech"), getT("skill_tech_desc"))'},
+            {text: getT("skill_graphic"), url:'javascript:renderSubContent(getT("skill_graphic"), getT("skill_graphic_desc"))'},
+            {text: getT("skill_video"), url:'javascript:renderSubContent(getT("skill_video"), getT("skill_video_desc"))'},
+            {text: getT("skill_teach"), url:'javascript:renderSubContent(getT("skill_teach"), getT("skill_teach_desc"))'},
+            {text: getT("skill_content"), url:'javascript:renderSubContent(getT("skill_content"), getT("skill_content_desc"))'}
         ];
         project.forEach(project=>{const button = document.createElement('a');
             button.textContent = project.text;
@@ -353,9 +417,9 @@ const newContent = document.getElementById('new-content');
     `;
     const subMenu = document.getElementById('sub-menu');
         const project=[
-            { text:'Who Am I', url:'javascript:renderSubContent("Who Am I", "<p>Hello! I am Steeve Zali (also known as TECHMAN), a dynamic and innovation-driven Level 300 Computer Science student at the University of Buea. I specialize in applying technology to solve real-world problems and creating engaging digital content.</p><br><p>With a strong background in graphic design and video editing alongside my academic pursuits in computer science, I blend technical analytical skills with creative thinking to deliver professional and unique solutions.</p>")'},
-            { text:'Passion and Interest', url:'javascript:renderSubContent("Passion and Interest", "<p>My deepest passions lie at the intersection of technology, creative design, and community impact. I am fascinated by software development, visual aesthetics, and the power of digital media to communicate powerful stories.</p><br><p>When I am not coding or studying, you will find me designing flyers, editing high-quality videos, learning new creative tools, or collaborating with peers to brainstorm exciting tech projects.</p>")'},
-            { text:'Career Goal', url:'javascript:renderSubContent("Career Goal", "<p>In the short term, I aim to graduate with top honors in Computer Science while continuing to expand my portfolio as a freelance creative designer and video editor.</p><br><p>My long-term career ambition is to become a versatile Software Engineer and Tech Director, building innovative technological products while leading creative campaigns that leave a lasting impact on society.</p>")'}
+            { text: getT("about_who"), url:'javascript:renderSubContent(getT("about_who"), getT("about_who_desc"))'},
+            { text: getT("about_passion"), url:'javascript:renderSubContent(getT("about_passion"), getT("about_passion_desc"))'},
+            { text: getT("about_career"), url:'javascript:renderSubContent(getT("about_career"), getT("about_career_desc"))'}
         ];
         project.forEach(project=>{const button = document.createElement('a');
             button.textContent = project.text;
@@ -384,8 +448,8 @@ const newContent = document.getElementById('new-content');
                 <div id="sub-content" class="sub-content-area"></div>
             </div>
           `;
-          const subMenu = document.getElementById('sub-menu');
-           const project=[{text:'In TECHFields',url:'javascript:addpro()'},{ text:'In Graphic Design',url:'javascript:addGraphicDesignGallery()'},{ text:'In Video Editing',url:'javascript:addvideo()'},{ text:'In Teaching Field',url:'javascript:renderSubContent(\"Teaching Field\", \"<p>I am a teacher with a passion for teaching and helping students learn. I have experience in teaching mathematics, science, and computer science to students of all ages. I am passionate about creating a positive and supportive learning environment for my students.</p>\")'},{ text:'As Content Creator',url:'javascript:addlinks()'}];
+           const subMenu = document.getElementById('sub-menu');
+           const project=[{text: getT("proj_tech"), url:'javascript:addpro()'},{ text: getT("proj_graphic"),url:'javascript:addGraphicDesignGallery()'},{ text: getT("proj_video"),url:'javascript:addvideo()'},{ text: getT("proj_teach"),url:'javascript:renderSubContent(getT("skill_teach"), getT("skill_teach_desc"))'},{ text: getT("proj_content"),url:'javascript:addlinks()'}];
            project.forEach(project=>{const button = document.createElement('a');
                button.textContent = project.text;
                button.href = project.url;
@@ -405,20 +469,24 @@ function addGraphicDesignGallery() {
         targetContainer.innerHTML = '';
     }
     const images = [
-        "ANANAS DANIELLE.png", "ANTI-DRUG.jpg", "BAK2SCHOOL 4.jpg", "BAK2SCHOOL B1.jpg", 
-        "BANDEROLE JZ L.jpg", "BAOBAB DANIE.png", "EMMA BIRTHDAY1.jpg", "EMMA BIRTHDAY2.jpg", 
-        "FINAL FRONT.png", "FINAL.png", "GHANA SOAP.jpg", "Home tutoring.jpg", "ISRAEL.jpg", 
-        "JORDAN.jpg", "LED LIGHT SMARTPHONE - Copie.jpg", "MANOU FLYER2.jpg", "MEGANE.jpg", 
-        "MOCK UP 11 FEV VERT.jpg", "MOCK UP 11 FEV.jpg", "MOCKUP 11 FEV e.jpg", 
-        "MOCKUP 11 FEV f.jpg", "MOCKUP 11 FEV n.jpg", "MOCKUP 11 FEV-Récupéré-Récupéré.jpg", 
-        "MOCKUP 11 FEV3.jpg", "October welcome25.jpg", "PRISCILLE BIRTHDAY.jpg", "PUB 2.jpg", 
-        "SALIM.png", "STEVE MAYEGA3.jpg", "Sans titre-1.jpg", "TANDONG 2.jpg", 
-        "WELCOME TO NOVEMBER 2.jpg", "bissap danie.png", "cbc10.jpg", "cbc11.jpg", 
-        "chez les spies.jpg", "facebook post.jpg", "flyer manou3.png", "happychristmas.jpg", 
-        "jeunesse.jpg", "kkumayas.jpg", "le vrai ndem4.jpg", "mjn.png", "mo up 2.jpg", 
-        "mo up 3.jpg", "mo up 4.jpg", "mock up carte.jpg", "multi clone.jpg", "pascal 3.png", 
-        "pro.jpg", "pub graphism2.jpg", "pub3 - Copy.png", "service declaration tole branche n.jpg", 
-        "stephane 2.png", "suit.jpg", "techman happychristmas.jpg"
+        "art fest.png", "tekmen rev fete du travaille.jpg", "i1.jpg", 
+        "BAK2SCHOOL B1.jpg", "chez les spies.jpg", "mjn.png", 
+        "PRISCILLE BIRTHDAY.jpg", "PUB 2.jpg", "service declaration tole branche n.jpg", 
+        "STEVE MAYEGA3.jpg", 
+        "ANANAS DANIELLE.png", "BAK2SCHOOL 4.jpg", "BANDEROLE JZ L.jpg", 
+        "BAOBAB DANIE.png", "EMMA BIRTHDAY1.jpg", "FINAL FRONT.png", 
+        "FINAL.png", "ISRAEL.jpg", "LED LIGHT SMARTPHONE - Copie.jpg", 
+        "MANOU FLYER2.jpg", "MEGANE.jpg", "MOCKUP 11 FEV e.jpg", 
+        "MOCKUP 11 FEV f.jpg", "MOCKUP 11 FEV-Récupéré-Récupéré.jpg", 
+        "October welcome25.jpg", "SALIM.png", "Sans titre-1.jpg", 
+        "TANDONG 2.jpg", "WELCOME TO NOVEMBER 2.jpg", "bissap danie.png", 
+        "cbc flyer.jpg", "cbc10.jpg", "facebook post.jpg", 
+        "fete de travaille.jpg", "happychristmas.jpg", "jeunesse.jpg", 
+        "jonathan BIRTHDAY.jpg", "kkumayas.jpg", "le vrai ndem4.jpg", 
+        "mo up 2.jpg", "mock up seco black 2.jpg", "mock up seco orange 2.jpg", 
+        "multi clone.jpg", "pascal 3.png", "pro.jpg", "pub graphism2.jpg", 
+        "soiree recreative 2.jpg", "soiree.jpg", "stephane 2.png", 
+        "suit.jpg", "techman happychristmas.jpg"
     ];
 
     let galleryItems = images.map(img => `
@@ -536,17 +604,16 @@ function addGraphicDesignGallery() {
    .san li { margin-bottom: 6px; line-height: 1.6; }
    </style>
    <div class="san">
-  <h1>EDUCATIONAL BACKGROUND</h1><br><br>
-  <h2>ACADEMIC-BACKGROUND</h2>
+  <h1>${getT("edu_title")}</h1><br><br>
+  <h2>${getT("edu_academic")}</h2>
   <ul>
-  <li><h3>I have obtained my GCE Avance Level in 2024 at IMHOTEP GREAT SCHOOL</h3></li>
-  <li><h3>Currently Enrolled at the University of buea studying a Computer science under the faculty of   science for a Bsc program</h3></li><br>
+  <li><h3>${getT("edu_gce")}</h3></li>
+  <li><h3>${getT("edu_uni")}</h3></li><br>
   </ul>
-  <h2>OTHER SOURCES</h1>
+  <h2>${getT("edu_other")}</h1>
   <ul>
   <li><h3>Free-code camp<h3></li>
   <li><h3>W3school<h3></li>
-  <li><h3>Free-code camp<h3></li>
   <li><h3>Youtube Tutorials <h3></li>
    </ul></div>     
     `;
@@ -670,9 +737,9 @@ function addGraphicDesignGallery() {
     const newContent = document.getElementById('new-content');
     newContent.innerHTML=`
     <div class="joel">
-      <h1 style="color:black;">Hi i am </h1>
+      <h1 style="color:black;">${getT("home_hi")}</h1>
   <p class="techman-title"><b>TECHMAN</b></p>
-  <h2 style="font-family:'Inter',sans-serif;font-weight:600;text-align:center;font-size:1.15rem;margin-top:8px;color:black;">A Computer Science Level 300 Student at the University of Buea</h2>
+  <h2 style="font-family:'Inter',sans-serif;font-weight:600;text-align:center;font-size:1.15rem;margin-top:8px;color:black;">${getT("home_desc")}</h2>
   
     
   `;
