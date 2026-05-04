@@ -670,9 +670,9 @@ function addGraphicDesignGallery() {
     const newContent = document.getElementById('new-content');
     newContent.innerHTML=`
     <div class="joel">
-      <h1>Hi i am </h1>
+      <h1 style="color:black;">Hi i am </h1>
   <p class="techman-title"><b>TECHMAN</b></p>
-  <h2 style="font-family:'Inter',sans-serif;font-weight:600;color:rgb(180,75,0);text-align:center;font-size:1.15rem;margin-top:8px;">A Computer Science Level 300 Student at the University of Buea</h2>
+  <h2 style="font-family:'Inter',sans-serif;font-weight:600;text-align:center;font-size:1.15rem;margin-top:8px;color:black;">A Computer Science Level 300 Student at the University of Buea</h2>
   
     
   `;
