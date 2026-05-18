@@ -469,24 +469,19 @@ function addGraphicDesignGallery() {
         targetContainer.innerHTML = '';
     }
     const images = [
-        "art fest.png", "tekmen rev fete du travaille.jpg", "i1.jpg", 
-        "BAK2SCHOOL B1.jpg", "chez les spies.jpg", "mjn.png", 
-        "PRISCILLE BIRTHDAY.jpg", "PUB 2.jpg", "service declaration tole branche n.jpg", 
-        "STEVE MAYEGA3.jpg", 
-        "ANANAS DANIELLE.png", "BAK2SCHOOL 4.jpg", "BANDEROLE JZ L.jpg", 
-        "BAOBAB DANIE.png", "EMMA BIRTHDAY1.jpg", "FINAL FRONT.png", 
-        "FINAL.png", "ISRAEL.jpg", "LED LIGHT SMARTPHONE - Copie.jpg", 
-        "MANOU FLYER2.jpg", "MEGANE.jpg", "MOCKUP 11 FEV e.jpg", 
-        "MOCKUP 11 FEV f.jpg", "MOCKUP 11 FEV-Récupéré-Récupéré.jpg", 
-        "October welcome25.jpg", "SALIM.png", "Sans titre-1.jpg", 
-        "TANDONG 2.jpg", "WELCOME TO NOVEMBER 2.jpg", "bissap danie.png", 
-        "cbc flyer.jpg", "cbc10.jpg", "facebook post.jpg", 
-        "fete de travaille.jpg", "happychristmas.jpg", "jeunesse.jpg", 
-        "jonathan BIRTHDAY.jpg", "kkumayas.jpg", "le vrai ndem4.jpg", 
-        "mo up 2.jpg", "mock up seco black 2.jpg", "mock up seco orange 2.jpg", 
-        "multi clone.jpg", "pascal 3.png", "pro.jpg", "pub graphism2.jpg", 
-        "soiree recreative 2.jpg", "soiree.jpg", "stephane 2.png", 
-        "suit.jpg", "techman happychristmas.jpg"
+        "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", 
+        "10.png", "11.png", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg", "17.jpg", 
+        "18.jpg", "19.jpg", "20.jpg", "21.jpg", "22.jpg", "23.jpg", "24.jpg", "25.jpg", 
+        "26.jpg", "27.jpg", "28.png", "29.png", "30.jpg", "31.png", "32.jpg", "33.jpg", 
+        "34.jpg", "35.jpg", "36.jpg", "37.jpg", "38.jpg", "39.jpg", "40.jpg", "41.jpg", 
+        "42.jpg", "43.jpg", "ANANAS DANIELLE.png", "BANDEROLE JZ L.jpg", "BAOBAB DANIE.png", 
+        "bissap danie.png", "cbc flyer.jpg", "cbc10.jpg", "EMMA BIRTHDAY1.jpg", 
+        "Etiquette  berger.png", "Etiquette  yayourt0.5LO.png", "FINAL FRONT.png", 
+        "FINAL.png", "foumban.jpg", "jonathan BIRTHDAY.jpg", "LED LIGHT SMARTPHONE - Copie.jpg", 
+        "le vrai ndem4.jpg", "mjn.png", "multi clone.jpg", "October welcome25.jpg", 
+        "pascal 3.png", "PUB 2.jpg", "pub graphism2.jpg", "pub3 - Copy.png", 
+        "SALIM.png", "Sans titre-1.jpg", "stephane 2.png", "suit.jpg", 
+        "techman happychristmas.jpg", "WELCOME TO NOVEMBER 2.jpg"
     ];
 
     let galleryItems = images.map(img => `
