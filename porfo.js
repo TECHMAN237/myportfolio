@@ -84,6 +84,12 @@ function renderSubContent(title, placeholder) {
     box-shadow: 0 6px 24px rgba(0,0,0,0.10);
     font-family: 'Inter', sans-serif;
   }
+  @media (max-width: 768px) {
+    .card-template {
+      padding: 20px 24px;
+      border-radius: 16px;
+    }
+  }
   .card-template h1 {
     color: rgb(209, 92, 8);
     font-family: 'Inter', sans-serif;
@@ -94,6 +100,13 @@ function renderSubContent(title, placeholder) {
     border-bottom: 2px solid rgba(209, 92, 8, 0.25);
     padding-bottom: 12px;
     letter-spacing: -0.5px;
+  }
+  @media (max-width: 768px) {
+    .card-template h1 {
+      font-size: 1.5rem;
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+    }
   }
   .card-template h2, .card-template h3 {
     color: rgb(180, 75, 0);
@@ -508,6 +521,21 @@ function addGraphicDesignGallery() {
               overflow-y: auto;
               box-sizing: border-box;
           }
+          @media (max-width: 768px) {
+              .gal-container {
+                  padding: 10px;
+                  gap: 10px;
+                  max-height: none;
+              }
+              .gal-item {
+                  width: calc(50% - 5px);
+              }
+              .gal-img {
+                  width: 100%;
+                  height: auto;
+                  aspect-ratio: 1 / 1;
+              }
+          }
           .gal-item {
               display: flex;
               justify-content: center;
@@ -638,6 +666,12 @@ function addGraphicDesignGallery() {
         box-shadow: 0 6px 24px rgba(0,0,0,0.10);
         font-family: 'Inter', sans-serif;
         box-sizing: border-box;
+      }
+      @media (max-width: 768px) {
+        .vid-container {
+          padding: 16px;
+          min-height: auto;
+        }
       }
       .vid-container .thumb {
         width: 130px;
