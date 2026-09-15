@@ -1,0 +1,6 @@
+{
+  "name": "TECHMAN Portfolio",
+  "description": "Portfolio website of Steeve Zali (TECHMAN), featuring projects, skills, education, graphic design gallery, and testimonials.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -4,6 +4,7 @@ const translations = {
     home_hi: "Hi i am ", home_desc: "A Computer Science Level 300 Student at the University of Buea",
     edu_title: "EDUCATIONAL BACKGROUND", edu_academic: "ACADEMIC-BACKGROUND", edu_gce: "I have obtained my GCE Avance Level in 2024 at IMHOTEP GREAT SCHOOL", edu_uni: "Currently Enrolled at the University of buea studying a Computer science under the faculty of science for a Bsc program", edu_other: "OTHER SOURCES",
     proj_tech: "In TECHFields", proj_graphic: "In Graphic Design", proj_video: "In Video Editing", proj_teach: "In Teaching Field", proj_content: "As Content Creator", proj_desc: "I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. Below are some of the projects I have built:", proj_visit: "Visit Project →",
+    pt_safechild_name: "SAFECHILD", pt_portfolio_name: "MY PORTFOLIO", pt_devops_name: "DEVOPS PORTFOLIO",
     pt_safechild_desc: "A project designed to reduce the rate of missing children in our community", pt_portfolio_desc: "The website in which you are navigating actually — built to show my competence to the world", pt_devops_desc: "Assisting an elder in the tech domain to build his portfolio website", pt_goclone_desc: "Aiming to clone the website of my university campus", pt_rock_desc: "A website to be delivered to the enterprise of Rock Attitude",
     skill_tech: "TECHFields", skill_graphic: "Graphic Design", skill_video: "Video Editing", skill_teach: "Teaching Field", skill_content: "Content Creation",
     skill_tech_desc: "<p>I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. I am passionate about technology and constantly learning new skills to stay updated with the latest trends in the industry.</p>",
@@ -21,6 +22,7 @@ const translations = {
     home_hi: "Salut je suis ", home_desc: "Étudiant de niveau 300 en Informatique à l'Université de Buea",
     edu_title: "PARCOURS ÉDUCATIF", edu_academic: "FORMATION ACADÉMIQUE", edu_gce: "J'ai obtenu mon GCE Advanced Level en 2024 à l'IMHOTEP GREAT SCHOOL", edu_uni: "Actuellement inscrit à l'Université de Buea en licence d'Informatique (Faculté des Sciences)", edu_other: "AUTRES SOURCES D'APPRENTISSAGE",
     proj_tech: "Dans la Tech", proj_graphic: "Design Graphique", proj_video: "Montage Vidéo", proj_teach: "Enseignement", proj_content: "Création de Contenu", proj_desc: "Je suis étudiant en informatique avec de solides bases en programmation et développement logiciel. J'ai de l'expérience en développement web, mobile et gestion de bases de données. Voici quelques-uns de mes projets :", proj_visit: "Voir le projet →",
+    pt_safechild_name: "SAFECHILD", pt_portfolio_name: "MON PORTFOLIO", pt_devops_name: "PORTFOLIO DEVOPS",
     pt_safechild_desc: "Un projet conçu pour réduire le taux d'enfants disparus dans notre communauté", pt_portfolio_desc: "Le site web sur lequel vous naviguez actuellement — conçu pour montrer mes compétences au monde", pt_devops_desc: "Assistance à un aîné du domaine de la tech pour construire son portfolio", pt_goclone_desc: "Projet visant à cloner le site web de mon campus universitaire", pt_rock_desc: "Un site web à livrer à l'entreprise Rock Attitude",
     skill_tech: "Dans la Tech", skill_graphic: "Design Graphique", skill_video: "Montage Vidéo", skill_teach: "Enseignement", skill_content: "Création de Contenu",
     skill_tech_desc: "<p>Je suis étudiant en informatique avec de solides bases en programmation et développement logiciel. J'ai de l'expérience en développement web, mobile et gestion de bases de données. Je suis passionné par la technologie et j'apprends constamment de nouvelles compétences pour rester à jour.</p>",
@@ -76,12 +78,15 @@ function renderSubContent(title, placeholder) {
   .card-template {
     width: 100%;
     max-width: 800px;
-    background-color: rgba(246, 242, 242, 0.88);
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
     padding: 32px 42px;
     margin: 0;
     box-sizing: border-box;
-    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255, 255, 255, 0.9);
     font-family: 'Inter', sans-serif;
   }
   @media (max-width: 768px) {
@@ -183,11 +188,14 @@ function addpro(){
     .tf-wrapper {
       width: 100%;
       max-width: 820px;
-      background: linear-gradient(135deg, rgba(246,242,242,0.92), rgba(255,255,255,0.85));
-      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 24px;
       padding: 32px 28px 28px;
       box-sizing: border-box;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255, 255, 255, 0.9);
       font-family: 'Inter', sans-serif;
       max-height: calc(100vh - 300px);
       overflow-y: auto;
@@ -201,7 +209,7 @@ function addpro(){
       letter-spacing: -0.5px;
     }
     .tf-wrapper .tf-intro {
-      color: #444;
+      color: #333;
       font-size: 0.95rem;
       line-height: 1.65;
       margin-bottom: 24px;
@@ -215,18 +223,20 @@ function addpro(){
     }
     .tf-project-card {
       position: relative;
-      background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(246,240,235,0.80));
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(209,92,8,0.12);
-      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 18px;
       padding: 22px 18px 18px;
       display: flex;
       flex-direction: column;
       cursor: pointer;
       transition: transform 0.3s cubic-bezier(.22,.68,0,1.1),
                   box-shadow 0.3s ease,
-                  border-color 0.3s ease;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+                  border-color 0.3s ease,
+                  background 0.3s ease;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06), inset 0 1px 1px rgba(255, 255, 255, 0.9);
       overflow: hidden;
       text-decoration: none !important;
     }
@@ -240,9 +250,10 @@ function addpro(){
       transition: opacity 0.3s ease;
     }
     .tf-project-card:hover {
+      background: rgba(255, 255, 255, 0.8);
       transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 12px 28px rgba(209,92,8,0.18);
-      border-color: rgba(209,92,8,0.35);
+      box-shadow: 0 14px 32px rgba(209,92,8,0.22), inset 0 1px 1px rgba(255, 255, 255, 1);
+      border-color: rgba(209,92,8,0.45);
     }
     .tf-project-card:hover::before {
       opacity: 1;
@@ -360,7 +371,7 @@ function openImageModal(imgSrc) {
     if (!modal) {
         modal = document.createElement('div');
         modal.id = 'img-modal';
-        modal.innerHTML = '<div id="modal-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);z-index:9999;display:flex;justify-content:center;align-items:center;cursor:pointer;"><img id="modal-img" style="max-width:90%;max-height:90%;border:5px solid white;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.5);"></div>';
+        modal.innerHTML = '<div id="modal-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:9999;display:flex;justify-content:center;align-items:center;cursor:pointer;"><img id="modal-img" style="max-width:90%;max-height:90%;border:2px solid rgba(255,255,255,0.8);border-radius:16px;box-shadow:0 16px 40px rgba(0,0,0,0.6);"></div>';
         document.body.appendChild(modal);
         modal.onclick = () => modal.style.display = 'none';
     }
@@ -510,11 +521,15 @@ function addGraphicDesignGallery() {
               flex-wrap: wrap;
               justify-content: center;
               gap: 20px;
-              padding: 20px 20px 30px;
+              padding: 24px 20px 30px;
               width: 100%;
               max-width: 800px;
-              background-color: rgba(255, 255, 255, 0.6);
-              border-radius: 20px;
+              background: rgba(255, 255, 255, 0.45);
+              backdrop-filter: blur(20px);
+              -webkit-backdrop-filter: blur(20px);
+              border: 1px solid rgba(255, 255, 255, 0.7);
+              border-radius: 24px;
+              box-shadow: 0 16px 40px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255, 255, 255, 0.9);
               z-index: 0;
               /* Stop before the fixed footer (~90px) + some breathing room */
               max-height: calc(100vh - 280px);
@@ -523,7 +538,7 @@ function addGraphicDesignGallery() {
           }
           @media (max-width: 768px) {
               .gal-container {
-                  padding: 10px;
+                  padding: 12px;
                   gap: 10px;
                   max-height: none;
               }
@@ -545,13 +560,16 @@ function addGraphicDesignGallery() {
               width: 150px;
               height: 150px;
               object-fit: cover;
-              border-radius: 10px;
-              transition: transform 0.3s ease;
-              box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+              border-radius: 14px;
+              transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+              border: 1px solid rgba(255, 255, 255, 0.6);
               opacity: 1;
           }
           .gal-img:hover {
-              transform: scale(1.05);
+              transform: scale(1.06);
+              border-color: rgba(209, 92, 8, 0.6);
+              box-shadow: 0 8px 24px rgba(209, 92, 8, 0.3);
           }
         </style>
         <div class="gal-container">
@@ -561,85 +579,68 @@ function addGraphicDesignGallery() {
 }
    
   function adddiv1(){
-            resetNav();
-            const eduBtn = document.getElementById('education-btn');
-            if (eduBtn) eduBtn.classList.add('active-nav');
-   const newContent = document.getElementById('new-content');
-   newContent.innerHTML=`
-   <div class="joel">
-  <h1>EDUCATIONAL BACKGROUND</h1><br><br>
-  <h2>ACADEMIC-BACKGROUND</h2>
-  <h3>-I have obtained my GCE Avance Level in 2024 at IMHOTEP GREAT SCHOOL</h3><br>
-  <h3>-Currently Enrolled at the University of buea studying a Computer science under the faculty of science for a Bsc program</h3><br><br>
-  <h2>OTHER SOURCES</h1>
-  <h3>Free-code camp<h3>
-  <h3>W3school<h3>
-  <h3>Free-code camp<h3>
-  <h3>Youtube Tutorials <h3>
-   </div>     
-    `;
-}
-   
-  function adddiv1(){
-            resetNav();
-            const eduBtn = document.getElementById('education-btn');
-            if (eduBtn) eduBtn.classList.add('active-nav');
-   const newContent = document.getElementById('new-content');
-   newContent.innerHTML=`
-   <style>
-   .san {
-     height: 450px;
-     width: 100%;
-     max-width: 800px;
-     background-color: rgba(246, 242, 242, 0.88);
-     border-radius: 20px;
-     padding: 28px 36px;
-     margin: 0 auto;
-     overflow-y: auto;
-     box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-     font-family: 'Inter', sans-serif;
-     box-sizing: border-box;
-   }
-   .san h1 {
-     color: rgb(209, 92, 8);
-     font-family: 'Inter', sans-serif;
-     font-weight: 800;
-     font-size: 1.8rem;
-     margin-bottom: 16px;
-     border-bottom: 2px solid rgba(209, 92, 8, 0.25);
-     padding-bottom: 10px;
-     letter-spacing: -0.5px;
-   }
-   .san h2 {
-     color: rgb(180, 75, 0);
-     font-family: 'Inter', sans-serif;
-     font-weight: 700;
-     font-size: 1.15rem;
-     margin: 14px 0 8px;
-   }
-   .san h3 {
-     color: #444;
-     font-family: 'Inter', sans-serif;
-     font-weight: 500;
-     font-size: 1rem;
-   }
-   .san ul { padding-left: 1.4rem; }
-   .san li { margin-bottom: 6px; line-height: 1.6; }
-   </style>
-   <div class="san">
-  <h1>${getT("edu_title")}</h1><br><br>
-  <h2>${getT("edu_academic")}</h2>
-  <ul>
-  <li><h3>${getT("edu_gce")}</h3></li>
-  <li><h3>${getT("edu_uni")}</h3></li><br>
-  </ul>
-  <h2>${getT("edu_other")}</h1>
-  <ul>
-  <li><h3>Free-code camp<h3></li>
-  <li><h3>W3school<h3></li>
-  <li><h3>Youtube Tutorials <h3></li>
-   </ul></div>     
-    `;
+    resetNav();
+    const eduBtn = document.getElementById('education-btn');
+    if (eduBtn) eduBtn.classList.add('active-nav');
+    const newContent = document.getElementById('new-content');
+    newContent.innerHTML=`
+    <style>
+    .san {
+      height: 450px;
+      width: 100%;
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.45);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 24px;
+      padding: 32px 40px;
+      margin: 0 auto;
+      overflow-y: auto;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+    }
+    .san h1 {
+      color: rgb(209, 92, 8);
+      font-family: 'Inter', sans-serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      margin-bottom: 16px;
+      border-bottom: 2px solid rgba(209, 92, 8, 0.25);
+      padding-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    .san h2 {
+      color: rgb(180, 75, 0);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin: 14px 0 8px;
+    }
+    .san h3 {
+      color: #333;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .san ul { padding-left: 1.4rem; }
+    .san li { margin-bottom: 6px; line-height: 1.6; }
+    </style>
+    <div class="san">
+   <h1>${getT("edu_title")}</h1><br><br>
+   <h2>${getT("edu_academic")}</h2>
+   <ul>
+   <li><h3>${getT("edu_gce")}</h3></li>
+   <li><h3>${getT("edu_uni")}</h3></li><br>
+   </ul>
+   <h2>${getT("edu_other")}</h1>
+   <ul>
+   <li><h3>Free-code camp<h3></li>
+   <li><h3>W3school<h3></li>
+   <li><h3>Youtube Tutorials <h3></li>
+    </ul></div>     
+     `;
   } 
 
 
@@ -660,10 +661,13 @@ function addGraphicDesignGallery() {
         min-height: 300px;
         width: 100%;
         max-width: 800px;
-        background-color: rgba(246, 242, 242, 0.88);
-        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 24px;
         overflow-y: auto;
-        box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255, 255, 255, 0.9);
         font-family: 'Inter', sans-serif;
         box-sizing: border-box;
       }
@@ -678,15 +682,15 @@ function addGraphicDesignGallery() {
         height: 86px;
         object-fit: cover;
         cursor: pointer;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        transition: transform 0.25s ease, box-shadow 0.25s ease;
-        border: 2px solid transparent;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        border: 1px solid rgba(255, 255, 255, 0.6);
       }
       .vid-container .thumb:hover {
         transform: scale(1.07) translateY(-3px);
-        box-shadow: 0 8px 20px rgba(209, 92, 8, 0.3);
-        border-color: rgba(209, 92, 8, 0.5);
+        box-shadow: 0 8px 22px rgba(209, 92, 8, 0.35);
+        border-color: rgba(209, 92, 8, 0.6);
       }
       .vid-container .thumb:active {
         transform: scale(1.02) translateY(0);
@@ -695,7 +699,7 @@ function addGraphicDesignGallery() {
       .vid-container video {
         width: 130px;
         cursor: pointer;
-        border-radius: 10px;
+        border-radius: 12px;
         box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         transition: transform 0.25s ease, box-shadow 0.25s ease;
       }
@@ -718,7 +722,9 @@ function addGraphicDesignGallery() {
     top:0; left:0;
     width:100%;
     height:100%;
-    background:black;
+    background:rgba(0,0,0,0.75);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
     justify-content:center;
     align-items:center;
     z-index:1000;
