@@ -381,6 +381,10 @@ function openImageModal(imgSrc) {
 
 function resetNav() {
     document.querySelectorAll('nav li a').forEach(a => a.classList.remove('active-nav'));
+    const subMenu = document.getElementById('sub-menu');
+    if (subMenu) {
+        subMenu.innerHTML = '';
+    }
     const newContent = document.getElementById('new-content');
     if (newContent) {
         newContent.style.width = '';
@@ -394,97 +398,103 @@ function addButtons(){
   const projBtn = document.getElementById('skills-btn');
   if (projBtn) projBtn.classList.add('active-nav');
 
-const newContent = document.getElementById('new-content');
-  newContent.style.width = '85%';
-  newContent.style.maxWidth = '1200px';
-  newContent.style.overflow = 'visible';
-  newContent.innerHTML=`
-    <div class="sub-layout">
-              <div id="sub-menu" class="sub-menu-col"></div>
-              <div id="sub-content" class="sub-content-area"></div>
-          </div>
-  `;
+  const newContent = document.getElementById('new-content');
+  if (newContent) {
+    newContent.innerHTML = `<div id="sub-content" class="sub-content-area"></div>`;
+  }
   const subMenu = document.getElementById('sub-menu');
-        const project=[
-            {text: getT("skill_tech"), url:'javascript:renderSubContent(getT("skill_tech"), getT("skill_tech_desc"))'},
-            {text: getT("skill_graphic"), url:'javascript:renderSubContent(getT("skill_graphic"), getT("skill_graphic_desc"))'},
-            {text: getT("skill_video"), url:'javascript:renderSubContent(getT("skill_video"), getT("skill_video_desc"))'},
-            {text: getT("skill_teach"), url:'javascript:renderSubContent(getT("skill_teach"), getT("skill_teach_desc"))'},
-            {text: getT("skill_content"), url:'javascript:renderSubContent(getT("skill_content"), getT("skill_content_desc"))'}
-        ];
-        project.forEach(project=>{const button = document.createElement('a');
-            button.textContent = project.text;
-            button.href = project.url;
-            button.classList.add('button');
-       button.onclick = function() {
-           document.querySelectorAll('#sub-menu a').forEach(a => a.classList.remove('active-sub'));
-           this.classList.add('active-sub');
-       };
-            subMenu.appendChild(button);
-          });
-        }
+  if (subMenu) {
+    subMenu.innerHTML = '';
+    const project=[
+      {text: getT("skill_tech"), url:'javascript:renderSubContent(getT("skill_tech"), getT("skill_tech_desc"))'},
+      {text: getT("skill_graphic"), url:'javascript:renderSubContent(getT("skill_graphic"), getT("skill_graphic_desc"))'},
+      {text: getT("skill_video"), url:'javascript:renderSubContent(getT("skill_video"), getT("skill_video_desc"))'},
+      {text: getT("skill_teach"), url:'javascript:renderSubContent(getT("skill_teach"), getT("skill_teach_desc"))'},
+      {text: getT("skill_content"), url:'javascript:renderSubContent(getT("skill_content"), getT("skill_content_desc"))'}
+    ];
+    project.forEach((proj, idx) => {
+      const button = document.createElement('a');
+      button.textContent = proj.text;
+      button.href = proj.url;
+      button.classList.add('button');
+      if (idx === 0) button.classList.add('active-sub');
+      button.onclick = function() {
+        document.querySelectorAll('#sub-menu a').forEach(a => a.classList.remove('active-sub'));
+        this.classList.add('active-sub');
+      };
+      subMenu.appendChild(button);
+    });
+  }
+  renderSubContent(getT("skill_tech"), getT("skill_tech_desc"));
+}
 
-  function addAbout(){
-    resetNav();
-    const projBtn = document.getElementById('about-btn');
-    if (projBtn) projBtn.classList.add('active-nav');
+function addAbout(){
+  resetNav();
+  const projBtn = document.getElementById('about-btn');
+  if (projBtn) projBtn.classList.add('active-nav');
 
-const newContent = document.getElementById('new-content');
-    newContent.style.width = '85%';
-    newContent.style.maxWidth = '1200px';
-    newContent.style.overflow = 'visible';
-    newContent.innerHTML=`
-      <div class="sub-layout">
-                <div id="sub-menu" class="sub-menu-col"></div>
-                <div id="sub-content" class="sub-content-area"></div>
-            </div>
-    `;
-    const subMenu = document.getElementById('sub-menu');
-        const project=[
-            { text: getT("about_who"), url:'javascript:renderSubContent(getT("about_who"), getT("about_who_desc"))'},
-            { text: getT("about_passion"), url:'javascript:renderSubContent(getT("about_passion"), getT("about_passion_desc"))'},
-            { text: getT("about_career"), url:'javascript:renderSubContent(getT("about_career"), getT("about_career_desc"))'}
-        ];
-        project.forEach(project=>{const button = document.createElement('a');
-            button.textContent = project.text;
-            button.href = project.url;
-            button.classList.add('button');
-         button.onclick = function() {
-             document.querySelectorAll('#sub-menu a').forEach(a => a.classList.remove('active-sub'));
-             this.classList.add('active-sub');
-         };
-            subMenu.appendChild(button);
-          });
-        }
-  
-      function addproject(){
-          resetNav();
-          const projBtn = document.getElementById('project-btn');
-          if (projBtn) projBtn.classList.add('active-nav');
+  const newContent = document.getElementById('new-content');
+  if (newContent) {
+    newContent.innerHTML = `<div id="sub-content" class="sub-content-area"></div>`;
+  }
+  const subMenu = document.getElementById('sub-menu');
+  if (subMenu) {
+    subMenu.innerHTML = '';
+    const project=[
+      { text: getT("about_who"), url:'javascript:renderSubContent(getT("about_who"), getT("about_who_desc"))'},
+      { text: getT("about_passion"), url:'javascript:renderSubContent(getT("about_passion"), getT("about_passion_desc"))'},
+      { text: getT("about_career"), url:'javascript:renderSubContent(getT("about_career"), getT("about_career_desc"))'}
+    ];
+    project.forEach((proj, idx) => {
+      const button = document.createElement('a');
+      button.textContent = proj.text;
+      button.href = proj.url;
+      button.classList.add('button');
+      if (idx === 0) button.classList.add('active-sub');
+      button.onclick = function() {
+        document.querySelectorAll('#sub-menu a').forEach(a => a.classList.remove('active-sub'));
+        this.classList.add('active-sub');
+      };
+      subMenu.appendChild(button);
+    });
+  }
+  renderSubContent(getT("about_who"), getT("about_who_desc"));
+}
 
-      const newContent = document.getElementById('new-content');
-          newContent.style.width = '85%';
-          newContent.style.maxWidth = '1200px';
-          newContent.style.overflow = 'visible';
-          newContent.innerHTML=`
-            <div class="sub-layout">
-                <div id="sub-menu" class="sub-menu-col"></div>
-                <div id="sub-content" class="sub-content-area"></div>
-            </div>
-          `;
-           const subMenu = document.getElementById('sub-menu');
-           const project=[{text: getT("proj_tech"), url:'javascript:addpro()'},{ text: getT("proj_graphic"),url:'javascript:addGraphicDesignGallery()'},{ text: getT("proj_video"),url:'javascript:addvideo()'},{ text: getT("proj_teach"),url:'javascript:renderSubContent(getT("skill_teach"), getT("skill_teach_desc"))'},{ text: getT("proj_content"),url:'javascript:addlinks()'}];
-           project.forEach(project=>{const button = document.createElement('a');
-               button.textContent = project.text;
-               button.href = project.url;
-               button.classList.add('button');
-               button.onclick = function() {
-                   document.querySelectorAll('#sub-menu a').forEach(a => a.classList.remove('active-sub'));
-                   this.classList.add('active-sub');
-               };
-               subMenu.appendChild(button);
-             });
-           }
+function addproject(){
+  resetNav();
+  const projBtn = document.getElementById('project-btn');
+  if (projBtn) projBtn.classList.add('active-nav');
+
+  const newContent = document.getElementById('new-content');
+  if (newContent) {
+    newContent.innerHTML = `<div id="sub-content" class="sub-content-area"></div>`;
+  }
+  const subMenu = document.getElementById('sub-menu');
+  if (subMenu) {
+    subMenu.innerHTML = '';
+    const project=[
+      {text: getT("proj_tech"), url:'javascript:addpro()'},
+      {text: getT("proj_graphic"), url:'javascript:addGraphicDesignGallery()'},
+      {text: getT("proj_video"), url:'javascript:addvideo()'},
+      {text: getT("proj_teach"), url:'javascript:renderSubContent(getT("skill_teach"), getT("skill_teach_desc"))'},
+      {text: getT("proj_content"), url:'javascript:addlinks()'}
+    ];
+    project.forEach((proj, idx) => {
+      const button = document.createElement('a');
+      button.textContent = proj.text;
+      button.href = proj.url;
+      button.classList.add('button');
+      if (idx === 0) button.classList.add('active-sub');
+      button.onclick = function() {
+        document.querySelectorAll('#sub-menu a').forEach(a => a.classList.remove('active-sub'));
+        this.classList.add('active-sub');
+      };
+      subMenu.appendChild(button);
+    });
+  }
+  addpro();
+}
 
 function addGraphicDesignGallery() {
     let targetContainer = document.getElementById('sub-content');

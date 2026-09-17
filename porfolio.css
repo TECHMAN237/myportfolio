@@ -229,11 +229,9 @@ body {
 /* ── PROFILE GALLERY AVATAR (Glassmorphic) ── */
 div.gallery {
   border-radius: 50%;
-  float: left;
   width: 154px;
   height: 154px;
-  margin-top: 28px;
-  margin-left: 10%;
+  margin: 0;
   padding: 5px;
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(14px);
@@ -244,6 +242,7 @@ div.gallery {
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  flex-shrink: 0;
 }
 
 div.gallery:hover {
@@ -260,20 +259,58 @@ div.gallery img {
   display: block;
 }
 
-/* ── NAVIGATION BAR (Glassmorphic Floating Capsule) ── */
-nav {
+/* ── PORTFOLIO MAIN LAYOUT HIERARCHY ── */
+.portfolio-layout {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  min-height: calc(100vh - 90px);
+  padding: 0 36px 100px 48px;
+  gap: 32px;
+  box-sizing: border-box;
+}
+
+/* 1. Profile Column (Left): Profile Picture + Anchored Submenu directly below */
+.profile-column {
+  width: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 32px;
+}
+
+/* 2. Main Column (Right): Remaining space for Navigation and Content Block */
+.main-column {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+}
+
+/* ── HEADER ROW (Navigation visually centered in the available space) ── */
+.nav-header-row {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  margin-top: 40px;
-  margin-right: 4%;
-  gap: 12px;
+  justify-content: center;
+  position: relative;
+  min-height: 52px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav {
   list-style-type: none;
   z-index: 10;
-  margin: 0 0 0 30px;
+  margin: 0;
   padding: 6px 10px;
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(18px);
@@ -328,7 +365,7 @@ nav {
   border-bottom: none;
 }
 
-/* ── LANGUAGE SWITCHER (Glassmorphic) ── */
+/* ── LANGUAGE SWITCHER (Placed in Right Space without shifting centered nav) ── */
 .lang-btn {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(18px);
@@ -344,8 +381,8 @@ nav {
   box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.9);
   transition: all 0.25s ease;
   white-space: nowrap;
-  margin-left: auto;
-  margin-right: 20px;
+  position: absolute;
+  right: 12px;
 }
 .lang-btn:hover {
   background: rgba(209, 92, 8, 0.92);
@@ -377,14 +414,23 @@ div.footer {
   align-items: center;
 }
 
+/* ── DISPLAYED CONTENT CONTAINER (Directly below Navigation Bar) ── */
+.content-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
 #new-content {
   list-style-type: none;
   padding: 0;
-  margin: 40px auto;
-  width: 80%;
-  max-width: 1200px;
-  /* Breathing room so content stops above the fixed footer */
-  padding-bottom: 100px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 #new-content a {
@@ -531,9 +577,9 @@ h3 {
   border: 1px solid rgba(255, 255, 255, 0.7);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1), inset 0 1px 1px rgba(255, 255, 255, 0.9);
   height: auto;
-  min-width: 70%;
-  width: 70%;
-  margin-left: 24%;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   background-attachment: scroll;
   border-radius: 24px;
   padding: 36px 50px;
@@ -554,7 +600,9 @@ h3 {
 }
 
 #content-area {
-  width: 70%;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -569,32 +617,30 @@ h3 {
   border-radius: 4px;
 }
 
-/* --- Sub-menu Layout (original column style) --- */
+/* --- Sub-menu Anchored Column Style --- */
 .sub-layout {
   display: flex;
   gap: 20px;
   align-items: flex-start;
+  width: 100%;
 }
 .sub-menu-col {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  width: 250px;
-  position: absolute;
-  top: 200px;
-  left: 12%;
-  flex-shrink: 0;
-  margin: 0;
+  gap: 8px;
+  width: 100%;
+  max-width: 210px;
+  margin: 0 auto;
   z-index: 10;
 }
 .sub-content-area {
-  flex: 1;
-  /* Subtract nav bar (~60px) + footer (~90px) + top offset (~200px) = ~350px */
-  max-height: calc(100vh - 350px);
-  overflow-y: auto;
-  padding-left: 280px; /* clear absolutely positioned sub-menu-col */
-  padding-right: 15px;
-  padding-bottom: 20px;
+  width: 100%;
+  max-width: 820px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   box-sizing: border-box;
 }
 
@@ -606,16 +652,32 @@ h3 {
   .bar {
     display: none;
   }
+  .portfolio-layout {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 16px 120px 16px;
+    gap: 16px;
+  }
+  .profile-column {
+    width: 100%;
+    margin-top: 16px;
+    gap: 12px;
+  }
   div.gallery {
     float: none;
-    margin: 20px auto;
+    margin: 8px auto;
   }
-  nav {
+  .main-column {
+    width: 100%;
+    margin-top: 6px;
+  }
+  .nav-header-row {
     flex-direction: column;
-    margin-top: 15px;
-    margin-right: 0;
     gap: 10px;
-    align-items: center;
+    min-height: auto;
+  }
+  .nav-container {
+    width: 100%;
     justify-content: center;
   }
   .nav {
@@ -623,13 +685,10 @@ h3 {
     opacity: 1;
     padding: 10px;
     border-radius: 20px;
-  }
-  nav .nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 8px;
-    padding: 8px;
     width: 92%;
   }
   .nav li {
@@ -649,29 +708,30 @@ h3 {
     box-shadow: 0 2px 6px rgba(0,0,0,0.06);
   }
   .lang-btn {
-    margin: 10px auto;
+    position: static;
+    margin: 6px auto;
     float: none;
   }
   .blue {
     width: 100%;
   }
+  .content-container {
+    margin-top: 16px;
+  }
   #new-content, .joel, #content-area {
-    width: 90% !important;
-    min-width: 90% !important;
-    margin: 20px auto !important;
+    width: 95% !important;
+    min-width: 95% !important;
+    max-width: 100% !important;
+    margin: 10px auto !important;
     padding: 24px 20px !important;
     float: none;
   }
-  /* Stack sub-menu on top of content on mobile */
-  .sub-layout {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
+  /* Stack sub-menu under profile on mobile */
   .sub-menu-col {
     position: static;
     width: 100%;
-    margin: 15px 0;
+    max-width: 500px;
+    margin: 8px auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -679,7 +739,7 @@ h3 {
     gap: 8px;
   }
   .sub-menu-col .button {
-    flex: 0 0 calc(50% - 4px); /* Perfect 2-column split with 8px gap */
+    flex: 0 0 calc(50% - 4px); /* Clean 2-column split on mobile */
     max-width: calc(50% - 4px);
     box-sizing: border-box;
     font-size: 0.82rem;
