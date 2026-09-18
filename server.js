@@ -13,8 +13,11 @@ app.use(express.static(__dirname, {
   extensions: ['html', 'htm']
 }));
 
-// Fallback to index.html
+// Fallback to index.html only for navigation routes without file extensions
 app.get('*', (req, res) => {
+  if (path.extname(req.path)) {
+    return res.status(404).type('text/plain').send('Asset not found: ' + req.path);
+  }
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 

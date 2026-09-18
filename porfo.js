@@ -1,6 +1,7 @@
 const translations = {
   en: {
     nav_home: "Home", nav_about: "About Me", nav_skills: "Skills", nav_projects: "Projects And Experiences", nav_education: "Education", footer_contact: "Contact me", footer_cv: "Download C.V", footer_testimonials: "Testimonials",
+    gal_all_designs: "All Designs", gal_categories: "Categories", gal_back: "← Back to Categories", gal_designs: "designs",
     home_hi: "Hi i am ", home_desc: "A Computer Science Level 300 Student at the University of Buea",
     edu_title: "EDUCATIONAL BACKGROUND", edu_academic: "ACADEMIC-BACKGROUND", edu_gce: "I have obtained my GCE Avance Level in 2024 at IMHOTEP GREAT SCHOOL", edu_uni: "Currently Enrolled at the University of buea studying a Computer science under the faculty of science for a Bsc program", edu_other: "OTHER SOURCES",
     proj_tech: "In TECHFields", proj_graphic: "In Graphic Design", proj_video: "In Video Editing", proj_teach: "In Teaching Field", proj_content: "As Content Creator", proj_desc: "I am a computer science student with a strong foundation in programming and software development. I have experience in web development, mobile application development, and database management. Below are some of the projects I have built:", proj_visit: "Visit Project →",
@@ -19,6 +20,7 @@ const translations = {
   },
   fr: {
     nav_home: "Accueil", nav_about: "À Propos", nav_skills: "Compétences", nav_projects: "Projets & Expériences", nav_education: "Éducation", footer_contact: "Contactez-moi", footer_cv: "Télécharger mon C.V", footer_testimonials: "Témoignages",
+    gal_all_designs: "Tous les designs", gal_categories: "Catégories", gal_back: "← Retour aux catégories", gal_designs: "designs",
     home_hi: "Salut je suis ", home_desc: "Étudiant de niveau 300 en Informatique à l'Université de Buea",
     edu_title: "PARCOURS ÉDUCATIF", edu_academic: "FORMATION ACADÉMIQUE", edu_gce: "J'ai obtenu mon GCE Advanced Level en 2024 à l'IMHOTEP GREAT SCHOOL", edu_uni: "Actuellement inscrit à l'Université de Buea en licence d'Informatique (Faculté des Sciences)", edu_other: "AUTRES SOURCES D'APPRENTISSAGE",
     proj_tech: "Dans la Tech", proj_graphic: "Design Graphique", proj_video: "Montage Vidéo", proj_teach: "Enseignement", proj_content: "Création de Contenu", proj_desc: "Je suis étudiant en informatique avec de solides bases en programmation et développement logiciel. J'ai de l'expérience en développement web, mobile et gestion de bases de données. Voici quelques-uns de mes projets :", proj_visit: "Voir le projet →",
@@ -366,16 +368,33 @@ function closeVideo() {
 }
 
 
+function handleGalleryImgError(img) {
+    console.error("Critical Asset Loading Error: Failed to load image:", img.getAttribute('src'));
+    img.classList.add('gal-img-failed');
+    const container = img.closest('.gal-item') || img.closest('.gal-folder-preview-wrapper');
+    if (container && !container.querySelector('.gal-error-badge')) {
+        const errBadge = document.createElement('div');
+        errBadge.className = 'gal-error-badge';
+        errBadge.innerHTML = '<span>⚠️ Asset Error</span>';
+        container.style.position = 'relative';
+        container.appendChild(errBadge);
+    }
+}
+
 function openImageModal(imgSrc) {
     let modal = document.getElementById('img-modal');
     if (!modal) {
         modal = document.createElement('div');
         modal.id = 'img-modal';
-        modal.innerHTML = '<div id="modal-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.65);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:9999;display:flex;justify-content:center;align-items:center;cursor:pointer;"><img id="modal-img" style="max-width:90%;max-height:90%;border:2px solid rgba(255,255,255,0.8);border-radius:16px;box-shadow:0 16px 40px rgba(0,0,0,0.6);"></div>';
+        modal.innerHTML = '<div id="modal-bg" style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);z-index:9999;display:flex;justify-content:center;align-items:center;cursor:pointer;"><img id="modal-img" style="max-width:90%;max-height:90%;border:2px solid rgba(255,255,255,0.8);border-radius:16px;box-shadow:0 16px 40px rgba(0,0,0,0.6);" onerror="handleGalleryImgError(this)"></div>';
         document.body.appendChild(modal);
         modal.onclick = () => modal.style.display = 'none';
     }
-    document.getElementById('modal-img').src = imgSrc;
+    const targetSrc = imgSrc.includes('%') ? imgSrc : encodeURI(imgSrc);
+    const mImg = document.getElementById('modal-img');
+    if (mImg) {
+        mImg.src = targetSrc;
+    }
     modal.style.display = 'flex';
 }
 
@@ -496,42 +515,734 @@ function addproject(){
   addpro();
 }
 
-function addGraphicDesignGallery() {
-    let targetContainer = document.getElementById('sub-content');
-    if (!targetContainer) {
-        targetContainer = document.getElementById('new-content');
-        targetContainer.innerHTML = '';
+/* ==========================================================================
+   GRAPHIC DESIGN GALLERY - DATASET & CATEGORIES
+   --------------------------------------------------------------------------
+   COMMENT AJOUTER UN NOUVEAU VISUEL AVEC SA CATÉGORIE :
+   Ajoutez simplement un nouvel élément dans le tableau ci-dessous :
+   {
+       image: "New folder/votre_image.jpg", // ou "graphic_designs/votre_image.jpg"
+       title: "Titre descriptif du visuel",
+       category: "Flyers & Promotion" // Ex: Flyers & Promotion, Social Media, Posters & Art, Events & Celebrations, Packaging & Labels, Logos & Marks, Mockups & Branding
+   }
+   Les dossiers de catégories et la galerie sont générés AUTOMATIQUEMENT à partir
+   des catégories présentes dans ce tableau.
+   ========================================================================== */
+const GRAPHIC_DESIGNS_DATA = [
+    {
+        "image": "graphic_designs/1.jpg",
+        "title": "Service de Répétiteur Scolaire",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/2.jpg",
+        "title": "Tekmei Olut - Explorez Votre Passion",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/3.jpg",
+        "title": "Campagne CodeJTV Tech",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/4.jpg",
+        "title": "Rassemblement Biblique Élèves & Étudiants",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/5.jpg",
+        "title": "Flyer Traiteur & Catering Service",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/6.jpg",
+        "title": "Garage Ismael - Diagnostic & Réparation",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/7.jpg",
+        "title": "Célébration 500 Abonnés Réseau",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/8.jpg",
+        "title": "HomeJoyDeco - Architecture d'Intérieur",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/9.jpg",
+        "title": "Créajuridique Pro - Cabinet Juridique",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/10.png",
+        "title": "Création de Site Web Vitrine",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/11.png",
+        "title": "Gatherings - Rencontre Communautaire",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/1.png",
+        "title": "Techman - Icône & Logotype Officiel",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/12.jpg",
+        "title": "HomeJoyDeco - Vœux de Joyeux Noël",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "graphic_designs/13.jpg",
+        "title": "Affiche Happy Birthday 14th Nov",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/1_Groupe 1.jpg",
+        "title": "Groupe Alliance - Identité Corporate",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/14.jpg",
+        "title": "HomeJoyDeco - Mobilier & Décoration",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/15.jpg",
+        "title": "Kumayas Fashion - Vente en Gros",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/1_Mothers Days.jpg",
+        "title": "Bonne Fête des Mères - Vœux Spéciaux",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "graphic_designs/16.jpg",
+        "title": "Zali Steeve - Citation Inspirationnelle",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/17.jpg",
+        "title": "Luxury Interior Design Collection",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/1_asw hack3.jpg",
+        "title": "ASW Hackathon 3 - Concours d'Innovation",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/18.jpg",
+        "title": "Bittem Tole Branch - Service Chrétien",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/19.jpg",
+        "title": "Imac Assurance - On Protège Ce Qui Compte",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/1_billet 2.jpg",
+        "title": "Billet d'Accès Événement VIP Admit One",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/20.jpg",
+        "title": "Jeunesse Vectrice de Paix Nationale",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/21.jpg",
+        "title": "Étude Biblique Minière - John 3:16",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/1_flyer service.jpg",
+        "title": "Services de Design Graphique & Branding",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/22.jpg",
+        "title": "CodeJTV - Recrutement Développeurs",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/23.jpg",
+        "title": "Campagne Étudiants & Membres GBEEC",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/1_presence online.jpg",
+        "title": "Stratégie de Visibilité Digitale & Réseaux",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/24.jpg",
+        "title": "Groupe Biblique Localité de Douala",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/25.jpg",
+        "title": "Séminaire Localité de Douala GBEEC",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/1_service video editing.jpg",
+        "title": "Service de Montage Vidéo Professionnel",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/26.jpg",
+        "title": "Conférence Biblique Régionale Douala",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/27.jpg",
+        "title": "Jeunesse Évangélique Bonabéri",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/1_studio.jpg",
+        "title": "Techman Studio - Laboratoire de Création",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/28.png",
+        "title": "Affiche Révolution Spirituelle",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/29.png",
+        "title": "Art Festival Créatif - Composition",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/1_website services.jpg",
+        "title": "Services de Développement Web & UI/UX",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/30.jpg",
+        "title": "Happy Birthday Mégane - Joyeux Anniversaire",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "graphic_designs/31.png",
+        "title": "HomeJoyDeco - Recrutement Décorateur",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/1k linkedin.jpg",
+        "title": "Célébration Cap des 1000 Abonnés LinkedIn",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/32.jpg",
+        "title": "Soutien Scolaire à Domicile",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/33.jpg",
+        "title": "Centre de Révision Déjà Revision Center",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/2.jpg",
+        "title": "Affiche Artistique Abstraite Minimaliste",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/34.jpg",
+        "title": "Ministère Révolution - Foi & Vision",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/35.jpg",
+        "title": "Révolution Ministères Internationaux",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/LOGO PRINCIPALE.png",
+        "title": "Techman - Logo Principal Officiel",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/36.jpg",
+        "title": "Affiche Conférence Évangélique",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/37.jpg",
+        "title": "Révolution - Culte de Louange",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/Visuel 10.jpg",
+        "title": "Festival Musical Live Summer Beats",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/38.jpg",
+        "title": "Communauté Chrétienne John 3:16",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/39.jpg",
+        "title": "Étude Biblique Internationale Révolution",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/Visuel 11.jpg",
+        "title": "Sommet International Innovation Summit",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/40.jpg",
+        "title": "Camp d'Impact Révolution",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/41.jpg",
+        "title": "Jeunes Engagés Pour la Paix & l'Unité",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/Visuel 13.jpg",
+        "title": "Lancement de Produit High-Tech",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/42.jpg",
+        "title": "Emblème Géométrique Minimaliste",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/43.jpg",
+        "title": "Badge Événementiel Corporate",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "New folder/Visuel 15.jpg",
+        "title": "Promo Spéciale Méga Soldes Limitées",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/ANANAS DANIELLE.png",
+        "title": "Packaging Jus d'Ananas Danielle Naturel",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/BANDEROLE JZ L.jpg",
+        "title": "Banderole Grand Format JZ Pressing",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "New folder/Visuel 16.jpg",
+        "title": "Offre Immobilière Résidences de Standing",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/BAOBAB DANIE.png",
+        "title": "Étiquette Bouteille Jus de Baobab Danie",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/EMMA BIRTHDAY1.jpg",
+        "title": "Vœux d'Anniversaire Emma - Bénédiction",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/WhatsApp Image 2026-05-31 at 09.30.25.jpeg",
+        "title": "Soirée Networking Rencontre Communautaire",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/Etiquette  berger.png",
+        "title": "Étiquette Produit Agroalimentaire Berger",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/Etiquette  yayourt0.5LO.png",
+        "title": "Packaging Étiquette Yaourt Vanille 0.5L",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "New folder/a805b3ae-8bf7-41f5-a451-081779ff7686.png",
+        "title": "Mockup Papeterie & Identité Visuelle",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/FINAL FRONT.png",
+        "title": "Carte de Visite Recto Manou Pretty Design",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/FINAL.png",
+        "title": "Carte de Visite Verso Manou Pretty Interior",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "New folder/alliance facebook.png",
+        "title": "Bannière Facebook Alliance Corporate",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/LED LIGHT SMARTPHONE - Copie.jpg",
+        "title": "Spot Promo LED Light Smartphone",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/October welcome25.jpg",
+        "title": "Vœux de Bienvenue Octobre Heureux",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/eclipse blanc.png",
+        "title": "Logo Eclipse - Version Blanche Fond Transparent",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/PUB 2.jpg",
+        "title": "Affiche Techman237 - Vos Pensées en Visuel",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/SALIM.png",
+        "title": "Programme de Recueillement Funéraire Salim",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/eclipse noir.png",
+        "title": "Logo Eclipse - Version Noire Contrastée",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/Sans titre-1.jpg",
+        "title": "Harmonious Exteriors - Architecture Paysagère",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/WELCOME TO NOVEMBER 2.jpg",
+        "title": "Bienvenue au Mois de Novembre - Le Vrai Ndem",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/visuel 1.jpg",
+        "title": "Citation Inspirationnelle Créativité Digitale",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/bissap danie.png",
+        "title": "Packaging Étiquette Jus de Bissap Danie",
+        "category": "Brand Identity & Packaging"
+    },
+    {
+        "image": "graphic_designs/cbc flyer.jpg",
+        "title": "Opération Étude Biblique Mai 2024",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/visuel 12.jpg",
+        "title": "Exposition d'Art & Design Contemporain",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/cbc10.jpg",
+        "title": "Culte Église Baptiste Akwa Nord",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/foumban.jpg",
+        "title": "Étude Biblique Internationale Foumban",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/visuel 17.jpg",
+        "title": "Affiche Exposition Typographique & Arts",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/jonathan BIRTHDAY.jpg",
+        "title": "Affiche Anniversaire Jonathan Wandji President",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "graphic_designs/le vrai ndem4.jpg",
+        "title": "Visuel Thématique 'Le Vrai Ndem C'est Quoi ?'",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "New folder/visuel 19.jpg",
+        "title": "Tech Talk Podcast Hebdomadaire",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/mjn.png",
+        "title": "Grille Tarifaire Pressing & Blanchisserie",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/multi clone.jpg",
+        "title": "Trust The Process - Visuel Typographique",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "New folder/visuel 2.jpg",
+        "title": "Programme Coaching Fitness & Santé",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/pascal 3.png",
+        "title": "Bittem Molyko - Celebration Service",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "graphic_designs/pub graphism2.jpg",
+        "title": "Offre Conception Graphique Prix Abordable",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/visuel 3.jpg",
+        "title": "Menu Gastronomique & Offre Restauration",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/pub3 - Copy.png",
+        "title": "Promotion d'Ouverture JZ Pressing Kilos",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "graphic_designs/stephane 2.png",
+        "title": "Joyeux Anniversaire Stéphane - Célébration",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/visuel 4.jpg",
+        "title": "Présentation Fonctionnalités Application Mobile",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "graphic_designs/suit.jpg",
+        "title": "Affiche Élégante Anniversaire Ami",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "graphic_designs/techman happychristmas.jpg",
+        "title": "Vœux de Noël & Nouvel An Techman",
+        "category": "Birthdays & Celebrations"
+    },
+    {
+        "image": "New folder/visuel 5.jpg",
+        "title": "Conseils & Astuces Maîtrise du Design",
+        "category": "Social Media & Digital"
+    },
+    {
+        "image": "New folder/visuel 6.jpg",
+        "title": "Journée d'Orientation & Accueil Campus",
+        "category": "Events & Conferences"
+    },
+    {
+        "image": "New folder/visuel 7.jpg",
+        "title": "Nouvelle Collection Mode & Prêt-à-Porter",
+        "category": "Business & Service Flyers"
+    },
+    {
+        "image": "New folder/visuel 8.jpg",
+        "title": "Soirée Pitch & Rencontre Entrepreneurs",
+        "category": "Events & Conferences"
     }
-    const images = [
-        "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", 
-        "10.png", "11.png", "12.jpg", "13.jpg", "14.jpg", "15.jpg", "16.jpg", "17.jpg", 
-        "18.jpg", "19.jpg", "20.jpg", "21.jpg", "22.jpg", "23.jpg", "24.jpg", "25.jpg", 
-        "26.jpg", "27.jpg", "28.png", "29.png", "30.jpg", "31.png", "32.jpg", "33.jpg", 
-        "34.jpg", "35.jpg", "36.jpg", "37.jpg", "38.jpg", "39.jpg", "40.jpg", "41.jpg", 
-        "42.jpg", "43.jpg", "ANANAS DANIELLE.png", "BANDEROLE JZ L.jpg", "BAOBAB DANIE.png", 
-        "bissap danie.png", "cbc flyer.jpg", "cbc10.jpg", "EMMA BIRTHDAY1.jpg", 
-        "Etiquette  berger.png", "Etiquette  yayourt0.5LO.png", "FINAL FRONT.png", 
-        "FINAL.png", "foumban.jpg", "jonathan BIRTHDAY.jpg", "LED LIGHT SMARTPHONE - Copie.jpg", 
-        "le vrai ndem4.jpg", "mjn.png", "multi clone.jpg", "October welcome25.jpg", 
-        "pascal 3.png", "PUB 2.jpg", "pub graphism2.jpg", "pub3 - Copy.png", 
-        "SALIM.png", "Sans titre-1.jpg", "stephane 2.png", "suit.jpg", 
-        "techman happychristmas.jpg", "WELCOME TO NOVEMBER 2.jpg"
-    ];
+];
 
-    let galleryItems = images.map(img => `
-        <div class="gal-item">
-            <a href="javascript:void(0)" onclick="openImageModal('graphic_designs/${img}')"><img loading="lazy" src="graphic_designs/${img}" class="gal-img"></a>
+const CATEGORY_COVERS = {
+    "Business & Service Flyers": "graphic_designs/8.jpg",
+    "Events & Conferences": "graphic_designs/4.jpg",
+    "Birthdays & Celebrations": "graphic_designs/13.jpg",
+    "Brand Identity & Packaging": "New folder/LOGO PRINCIPALE.png",
+    "Social Media & Digital": "New folder/1k linkedin.jpg"
+};
+
+const CATEGORY_NAMES = {
+    en: {
+        "Business & Service Flyers": "Business & Services",
+        "Events & Conferences": "Events & Conferences",
+        "Birthdays & Celebrations": "Birthdays & Celebrations",
+        "Brand Identity & Packaging": "Branding & Packaging",
+        "Social Media & Digital": "Social Media & Digital"
+    },
+    fr: {
+        "Business & Service Flyers": "Entreprises & Services",
+        "Events & Conferences": "Événements & Conférences",
+        "Birthdays & Celebrations": "Anniversaires & Célébrations",
+        "Brand Identity & Packaging": "Identité & Packaging",
+        "Social Media & Digital": "Réseaux Sociaux & Digital"
+    }
+};
+
+
+function getCategoryName(cat) {
+    const lang = (typeof currentLang !== "undefined" && currentLang === "fr") ? "fr" : "en";
+    return (CATEGORY_NAMES[lang] && CATEGORY_NAMES[lang][cat]) || cat;
+}
+
+let currentGraphicMode = "all";
+let currentGraphicCategory = null;
+
+function setGraphicGalleryMode(mode) {
+    currentGraphicMode = mode;
+    const btnAll = document.getElementById("gal-btn-all");
+    const btnCat = document.getElementById("gal-btn-cat");
+    const allView = document.getElementById("gal-all-view");
+    const foldersView = document.getElementById("gal-folders-view");
+    const catView = document.getElementById("gal-category-view");
+
+    if (mode === "all") {
+        currentGraphicCategory = null;
+        if (btnAll) btnAll.classList.add("active");
+        if (btnCat) btnCat.classList.remove("active");
+        if (allView) allView.style.display = "flex";
+        if (foldersView) foldersView.style.display = "none";
+        if (catView) catView.style.display = "none";
+    } else {
+        if (btnAll) btnAll.classList.remove("active");
+        if (btnCat) btnCat.classList.add("active");
+        if (allView) allView.style.display = "none";
+
+        if (currentGraphicCategory) {
+            if (foldersView) foldersView.style.display = "none";
+            if (catView) catView.style.display = "flex";
+        } else {
+            if (foldersView) foldersView.style.display = "grid";
+            if (catView) catView.style.display = "none";
+        }
+    }
+}
+
+function openGraphicCategory(catName) {
+    currentGraphicMode = "categories";
+    currentGraphicCategory = catName;
+
+    const btnAll = document.getElementById("gal-btn-all");
+    const btnCat = document.getElementById("gal-btn-cat");
+    if (btnAll) btnAll.classList.remove("active");
+    if (btnCat) btnCat.classList.add("active");
+
+    const allView = document.getElementById("gal-all-view");
+    const foldersView = document.getElementById("gal-folders-view");
+    const catView = document.getElementById("gal-category-view");
+
+    if (allView) allView.style.display = "none";
+    if (foldersView) foldersView.style.display = "none";
+
+    const filtered = GRAPHIC_DESIGNS_DATA.filter(d => d.category === catName);
+    const catTitle = getCategoryName(catName);
+    const count = filtered.length;
+    const designsLabel = getT("gal_designs") || "designs";
+    const backLabel = getT("gal_back") || "← Back to Categories";
+
+    if (catView) {
+        catView.innerHTML = `
+            <div class="gal-cat-header">
+                <button type="button" class="gal-back-btn" onclick="backToGraphicCategories()">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                    <span>${backLabel}</span>
+                </button>
+                <div class="gal-cat-header-title">
+                    <span>${catTitle}</span>
+                    <span class="gal-cat-header-badge">${count} ${designsLabel}</span>
+                </div>
+            </div>
+            <div class="gal-grid">
+                ${filtered.map(item => {
+                    const cleanTitle = (item.title || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+                    const safeUrl = encodeURI(item.image);
+                    return `
+                    <div class="gal-item" data-category="${item.category}">
+                        <a href="javascript:void(0)" onclick="openImageModal('${safeUrl}')" title="${cleanTitle} (${catTitle})">
+                            <img src="${safeUrl}" alt="${cleanTitle}" class="gal-img" decoding="async" onerror="handleGalleryImgError(this)">
+                        </a>
+                    </div>
+                    `;
+                }).join("")}
+            </div>
+        `;
+        catView.style.display = "flex";
+    }
+
+    const container = document.querySelector(".gal-container");
+    if (container) container.scrollTop = 0;
+}
+
+function backToGraphicCategories() {
+    currentGraphicCategory = null;
+    setGraphicGalleryMode("categories");
+    const container = document.querySelector(".gal-container");
+    if (container) container.scrollTop = 0;
+}
+
+function addGraphicDesignGallery() {
+    let targetContainer = document.getElementById("sub-content");
+    if (!targetContainer) {
+        targetContainer = document.getElementById("new-content");
+        targetContainer.innerHTML = "";
+    }
+
+    // Unique natural categories deduced from assets
+    const uniqueCats = Array.from(new Set(GRAPHIC_DESIGNS_DATA.map(d => d.category).filter(Boolean))).sort();
+    const designsLabel = getT("gal_designs") || "designs";
+    const allDesignsLabel = getT("gal_all_designs") || "All Designs";
+    const categoriesLabel = getT("gal_categories") || "Categories";
+
+    // Build Folder cards HTML for categories view
+    const foldersHtml = uniqueCats.map(cat => {
+        const count = GRAPHIC_DESIGNS_DATA.filter(d => d.category === cat).length;
+        const coverImg = CATEGORY_COVERS[cat] || (GRAPHIC_DESIGNS_DATA.find(d => d.category === cat) || {}).image;
+        const localizedTitle = getCategoryName(cat);
+
+        return `
+            <div class="gal-folder-card" onclick="openGraphicCategory('${cat}')" title="${localizedTitle} - ${count} ${designsLabel}">
+                <div class="gal-folder-tab">
+                    <svg class="gal-folder-tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span class="gal-folder-tag">Folder</span>
+                </div>
+                <div class="gal-folder-preview-wrapper">
+                    <img src="${encodeURI(coverImg)}" alt="${localizedTitle}" class="gal-folder-preview-img" decoding="async" onerror="handleGalleryImgError(this)">
+                </div>
+                <div class="gal-folder-info">
+                    <h4 class="gal-folder-title">${localizedTitle}</h4>
+                    <span class="gal-folder-badge">${count} ${designsLabel}</span>
+                </div>
+            </div>
+        `;
+    }).join("");
+
+    // Build All Designs items HTML (all 105 images, 9 first strictly preserved)
+    const galleryItemsHtml = GRAPHIC_DESIGNS_DATA.map(item => {
+        const cleanTitle = (item.title || "").replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        const safeUrl = encodeURI(item.image);
+        return `
+        <div class="gal-item" data-category="${item.category}">
+            <a href="javascript:void(0)" onclick="openImageModal('${safeUrl}')" title="${cleanTitle} (${getCategoryName(item.category)})">
+                <img src="${safeUrl}" alt="${cleanTitle}" class="gal-img" decoding="async" onerror="handleGalleryImgError(this)">
+            </a>
         </div>
-    `).join('');
+        `;
+    }).join("");
 
     targetContainer.innerHTML = `
-         <style>
+        <style>
           .gal-container {
               display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-              gap: 20px;
-              padding: 24px 20px 30px;
+              flex-direction: column;
+              align-items: center;
+              padding: 18px 18px 26px;
               width: 100%;
               max-width: 800px;
               background: rgba(255, 255, 255, 0.45);
@@ -541,30 +1252,105 @@ function addGraphicDesignGallery() {
               border-radius: 24px;
               box-shadow: 0 16px 40px rgba(0,0,0,0.10), inset 0 1px 1px rgba(255, 255, 255, 0.9);
               z-index: 0;
-              /* Stop before the fixed footer (~90px) + some breathing room */
               max-height: calc(100vh - 280px);
               overflow-y: auto;
               box-sizing: border-box;
+              scrollbar-width: thin;
+              scrollbar-color: rgba(209, 92, 8, 0.45) transparent;
           }
-          @media (max-width: 768px) {
-              .gal-container {
-                  padding: 12px;
-                  gap: 10px;
-                  max-height: none;
-              }
-              .gal-item {
-                  width: calc(50% - 5px);
-              }
-              .gal-img {
-                  width: 100%;
-                  height: auto;
-                  aspect-ratio: 1 / 1;
-              }
+          .gal-container::-webkit-scrollbar {
+              width: 7px;
+          }
+          .gal-container::-webkit-scrollbar-track {
+              background: transparent;
+          }
+          .gal-container::-webkit-scrollbar-thumb {
+              background: rgba(209, 92, 8, 0.35);
+              border-radius: 10px;
+          }
+          .gal-container::-webkit-scrollbar-thumb:hover {
+              background: rgba(209, 92, 8, 0.65);
+          }
+          .gal-controls {
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              margin-bottom: 18px;
+              position: sticky;
+              top: -4px;
+              z-index: 10;
+              padding: 4px 0 6px;
+              background: rgba(255, 255, 255, 0.40);
+              backdrop-filter: blur(12px);
+              -webkit-backdrop-filter: blur(12px);
+              border-radius: 9999px;
+          }
+          .gal-mode-toggle {
+              display: inline-flex;
+              background: rgba(255, 255, 255, 0.75);
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.85);
+              border-radius: 9999px;
+              padding: 4px;
+              box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+              gap: 4px;
+          }
+          .gal-toggle-btn {
+              border: none;
+              background: transparent;
+              padding: 7px 20px;
+              font-size: 0.86rem;
+              font-weight: 600;
+              font-family: inherit;
+              color: #4b5563;
+              border-radius: 9999px;
+              cursor: pointer;
+              transition: all 0.25s ease;
+              white-space: nowrap;
+          }
+          .gal-toggle-btn:hover {
+              color: rgb(209, 92, 8);
+          }
+          .gal-toggle-btn.active {
+              background: rgb(209, 92, 8);
+              color: #ffffff;
+              box-shadow: 0 4px 12px rgba(209, 92, 8, 0.35);
+          }
+          
+          .gal-img.gal-img-failed {
+              border: 2px solid #ef4444 !important;
+              background: rgba(239, 68, 68, 0.15) !important;
+          }
+          .gal-error-badge {
+              position: absolute;
+              bottom: 8px;
+              left: 8px;
+              right: 8px;
+              background: rgba(220, 38, 38, 0.92);
+              color: #ffffff;
+              font-size: 0.65rem;
+              font-weight: 700;
+              padding: 4px 6px;
+              border-radius: 6px;
+              text-align: center;
+              z-index: 5;
+              pointer-events: none;
+              box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+          }
+          .gal-grid {
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
+              gap: 20px;
+              width: 100%;
+              animation: galFadeIn 0.3s ease;
           }
           .gal-item {
               display: flex;
               justify-content: center;
               align-items: center;
+              transition: opacity 0.25s ease, transform 0.25s ease;
           }
           .gal-img {
               width: 150px;
@@ -575,19 +1361,243 @@ function addGraphicDesignGallery() {
               box-shadow: 0 4px 12px rgba(0,0,0,0.15);
               border: 1px solid rgba(255, 255, 255, 0.6);
               opacity: 1;
+              display: block;
           }
           .gal-img:hover {
               transform: scale(1.06);
               border-color: rgba(209, 92, 8, 0.6);
               box-shadow: 0 8px 24px rgba(209, 92, 8, 0.3);
           }
+          /* Folders view styling */
+          .gal-folders-grid {
+              display: grid;
+              grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+              gap: 18px;
+              width: 100%;
+              padding: 4px 2px 14px;
+              box-sizing: border-box;
+              animation: galFadeIn 0.3s ease;
+          }
+          .gal-folder-card {
+              position: relative;
+              background: rgba(255, 255, 255, 0.68);
+              backdrop-filter: blur(14px);
+              -webkit-backdrop-filter: blur(14px);
+              border: 1px solid rgba(255, 255, 255, 0.88);
+              border-radius: 18px;
+              padding: 12px 12px 14px;
+              cursor: pointer;
+              transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+              box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              user-select: none;
+          }
+          .gal-folder-card:hover {
+              transform: translateY(-4px);
+              background: rgba(255, 255, 255, 0.88);
+              border-color: rgba(209, 92, 8, 0.45);
+              box-shadow: 0 12px 28px rgba(209, 92, 8, 0.18), 0 2px 6px rgba(0, 0, 0, 0.04);
+          }
+          .gal-folder-tab {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              margin-bottom: 8px;
+          }
+          .gal-folder-tab-icon {
+              width: 17px;
+              height: 17px;
+              color: rgb(209, 92, 8);
+              flex-shrink: 0;
+          }
+          .gal-folder-tag {
+              font-size: 0.70rem;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.6px;
+              color: rgb(209, 92, 8);
+          }
+          .gal-folder-preview-wrapper {
+              position: relative;
+              width: 100%;
+              aspect-ratio: 4 / 3;
+              border-radius: 12px;
+              overflow: hidden;
+              background: rgba(0, 0, 0, 0.04);
+              border: 1px solid rgba(255, 255, 255, 0.7);
+              margin-bottom: 10px;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+          }
+          .gal-folder-preview-img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.35s ease;
+              display: block;
+          }
+          .gal-folder-card:hover .gal-folder-preview-img {
+              transform: scale(1.05);
+          }
+          .gal-folder-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: baseline;
+              gap: 8px;
+          }
+          .gal-folder-title {
+              font-size: 0.88rem;
+              font-weight: 700;
+              color: #1f2937;
+              margin: 0;
+              line-height: 1.25;
+          }
+          .gal-folder-badge {
+              font-size: 0.70rem;
+              font-weight: 600;
+              background: rgba(209, 92, 8, 0.10);
+              color: rgb(180, 75, 0);
+              padding: 2px 8px;
+              border-radius: 9999px;
+              white-space: nowrap;
+          }
+          /* Inside Category View */
+          .gal-category-view {
+              display: none;
+              flex-direction: column;
+              width: 100%;
+              animation: galFadeIn 0.3s ease;
+          }
+          .gal-cat-header {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              margin-bottom: 16px;
+              padding: 2px 4px;
+              box-sizing: border-box;
+              gap: 12px;
+              flex-wrap: wrap;
+          }
+          .gal-back-btn {
+              display: inline-flex;
+              align-items: center;
+              gap: 6px;
+              background: rgba(255, 255, 255, 0.80);
+              border: 1px solid rgba(255, 255, 255, 0.95);
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              color: #1f2937;
+              font-size: 0.82rem;
+              font-weight: 600;
+              font-family: inherit;
+              padding: 7px 14px;
+              border-radius: 9999px;
+              cursor: pointer;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+              transition: all 0.2s ease;
+          }
+          .gal-back-btn:hover {
+              background: rgb(209, 92, 8);
+              color: #ffffff;
+              border-color: rgb(209, 92, 8);
+              transform: translateX(-2px);
+              box-shadow: 0 4px 12px rgba(209, 92, 8, 0.3);
+          }
+          .gal-cat-header-title {
+              font-size: 0.92rem;
+              font-weight: 700;
+              color: #374151;
+              display: inline-flex;
+              align-items: center;
+              gap: 8px;
+          }
+          .gal-cat-header-badge {
+              font-size: 0.74rem;
+              font-weight: 600;
+              background: rgba(209, 92, 8, 0.12);
+              color: rgb(180, 75, 0);
+              padding: 2px 9px;
+              border-radius: 9999px;
+          }
+          @keyframes galFadeIn {
+              from { opacity: 0; transform: translateY(6px); }
+              to { opacity: 1; transform: translateY(0); }
+          }
+          @media (max-width: 768px) {
+              .gal-container {
+                  padding: 14px;
+                  max-height: none;
+              }
+              .gal-controls {
+                  margin-bottom: 12px;
+              }
+              .gal-grid {
+                  gap: 10px;
+              }
+              .gal-item {
+                  width: calc(50% - 5px);
+              }
+              .gal-img {
+                  width: 100%;
+                  height: auto;
+                  aspect-ratio: 1 / 1;
+              }
+              .gal-folders-grid {
+                  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                  gap: 12px;
+              }
+              .gal-folder-card {
+                  padding: 10px;
+                  border-radius: 14px;
+              }
+              .gal-folder-title {
+                  font-size: 0.80rem;
+              }
+              .gal-folder-badge {
+                  font-size: 0.65rem;
+                  padding: 1px 6px;
+              }
+              .gal-toggle-btn {
+                  padding: 6px 14px;
+                  font-size: 0.78rem;
+              }
+          }
         </style>
         <div class="gal-container">
-            ${galleryItems}
+            <div class="gal-controls">
+                <div class="gal-mode-toggle">
+                    <button type="button" class="gal-toggle-btn active" id="gal-btn-all" onclick="setGraphicGalleryMode('all')">${allDesignsLabel}</button>
+                    <button type="button" class="gal-toggle-btn" id="gal-btn-cat" onclick="setGraphicGalleryMode('categories')">${categoriesLabel}</button>
+                </div>
+            </div>
+            <!-- All Designs View -->
+            <div class="gal-grid" id="gal-all-view">
+                ${galleryItemsHtml}
+            </div>
+            <!-- Categories Folders Grid View -->
+            <div class="gal-folders-grid" id="gal-folders-view" style="display: none;">
+                ${foldersHtml}
+            </div>
+            <!-- Active Category Detailed View -->
+            <div class="gal-category-view" id="gal-category-view" style="display: none;">
+            </div>
         </div>
     `;
+
+    // Initialize mode
+    if (currentGraphicMode === "categories") {
+        if (currentGraphicCategory) {
+            openGraphicCategory(currentGraphicCategory);
+        } else {
+            setGraphicGalleryMode("categories");
+        }
+    } else {
+        setGraphicGalleryMode("all");
+    }
 }
-   
+
   function adddiv1(){
     resetNav();
     const eduBtn = document.getElementById('education-btn');
