@@ -593,7 +593,7 @@ const VALIDATED_GRAPHIC_DESIGNS = [
     {
         "id": "gd-001",
         "image": "graphic_designs/1.jpg",
-        "title": "Service de R\u00e9p\u00e9titeur Scolaire",
+        "title": "Service de Répétiteur Scolaire",
         "category": "Business & Service Flyers"
     },
     {
@@ -611,7 +611,7 @@ const VALIDATED_GRAPHIC_DESIGNS = [
     {
         "id": "gd-004",
         "image": "graphic_designs/4.jpg",
-        "title": "Rassemblement Biblique \u00c9l\u00e8ves & \u00c9tudiants",
+        "title": "Rassemblement Biblique Élèves & Étudiants",
         "category": "Events & Conferences"
     },
     {
@@ -623,31 +623,31 @@ const VALIDATED_GRAPHIC_DESIGNS = [
     {
         "id": "gd-006",
         "image": "graphic_designs/6.jpg",
-        "title": "Garage Ismael - Diagnostic & R\u00e9paration",
+        "title": "Garage Ismael - Diagnostic & Réparation",
         "category": "Business & Service Flyers"
     },
     {
         "id": "gd-007",
         "image": "graphic_designs/7.jpg",
-        "title": "C\u00e9l\u00e9bration 500 Abonn\u00e9s R\u00e9seau",
+        "title": "Célébration 500 Abonnés Réseau",
         "category": "Social Media & Digital"
     },
     {
         "id": "gd-008",
         "image": "graphic_designs/8.jpg",
-        "title": "HomeJoyDeco - Architecture d'Int\u00e9rieur",
+        "title": "HomeJoyDeco - Architecture d'Intérieur",
         "category": "Business & Service Flyers"
     },
     {
         "id": "gd-009",
         "image": "graphic_designs/9.jpg",
-        "title": "Cr\u00e9ajuridique Pro - Cabinet Juridique",
+        "title": "Créajuridique Pro - Cabinet Juridique",
         "category": "Business & Service Flyers"
     },
     {
         "id": "gd-010",
         "image": "graphic_designs/10.png",
-        "title": "Cr\u00e9ation de Site Web Vitrine",
+        "title": "Création de Site Web Vitrine",
         "category": "Business & Service Flyers"
     },
     {
@@ -658,561 +658,363 @@ const VALIDATED_GRAPHIC_DESIGNS = [
     },
     {
         "id": "gd-012",
-        "image": "New folder/1.png",
-        "title": "Techman - Ic\u00f4ne & Logotype Officiel",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-013",
         "image": "graphic_designs/12.jpg",
-        "title": "HomeJoyDeco - V\u0153ux de Joyeux No\u00ebl",
+        "title": "HomeJoyDeco - Vœux de Joyeux Noël",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-014",
+        "id": "gd-013",
         "image": "graphic_designs/13.jpg",
         "title": "Affiche Happy Birthday 14th Nov",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-015",
-        "image": "New folder/1_Groupe 1.jpg",
-        "title": "Groupe Alliance - Identit\u00e9 Corporate",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-016",
+        "id": "gd-014",
         "image": "graphic_designs/14.jpg",
-        "title": "HomeJoyDeco - Mobilier & D\u00e9coration",
+        "title": "HomeJoyDeco - Mobilier & Décoration",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-017",
+        "id": "gd-015",
         "image": "graphic_designs/15.jpg",
         "title": "Kumayas Fashion - Vente en Gros",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-018",
-        "image": "New folder/1_Mothers Days.jpg",
-        "title": "Bonne F\u00eate des M\u00e8res - V\u0153ux Sp\u00e9ciaux",
-        "category": "Birthdays & Celebrations"
-    },
-    {
-        "id": "gd-019",
+        "id": "gd-016",
         "image": "graphic_designs/16.jpg",
         "title": "Zali Steeve - Citation Inspirationnelle",
         "category": "Social Media & Digital"
     },
     {
-        "id": "gd-020",
+        "id": "gd-017",
         "image": "graphic_designs/17.jpg",
         "title": "Luxury Interior Design Collection",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-021",
-        "image": "New folder/1_asw hack3.jpg",
-        "title": "ASW Hackathon 3 - Concours d'Innovation",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-022",
+        "id": "gd-018",
         "image": "graphic_designs/18.jpg",
-        "title": "Bittem Tole Branch - Service Chr\u00e9tien",
+        "title": "Bittem Tole Branch - Service Chrétien",
         "category": "Events & Conferences"
     },
     {
-        "id": "gd-023",
+        "id": "gd-019",
         "image": "graphic_designs/19.jpg",
-        "title": "Imac Assurance - On Prot\u00e8ge Ce Qui Compte",
+        "title": "Imac Assurance - On Protège Ce Qui Compte",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-024",
-        "image": "New folder/1_billet 2.jpg",
-        "title": "Billet d'Acc\u00e8s \u00c9v\u00e9nement VIP Admit One",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-025",
+        "id": "gd-020",
         "image": "graphic_designs/20.jpg",
         "title": "Jeunesse Vectrice de Paix Nationale",
         "category": "Events & Conferences"
     },
     {
-        "id": "gd-026",
+        "id": "gd-021",
         "image": "graphic_designs/21.jpg",
-        "title": "\u00c9tude Biblique Mini\u00e8re - John 3:16",
+        "title": "Étude Biblique Minière - John 3:16",
+        "category": "Events & Conferences"
+    },
+    {
+        "id": "gd-022",
+        "image": "graphic_designs/22.jpg",
+        "title": "CodeJTV - Recrutement Développeurs",
+        "category": "Social Media & Digital"
+    },
+    {
+        "id": "gd-023",
+        "image": "graphic_designs/23.jpg",
+        "title": "Campagne Étudiants & Membres GBEEC",
+        "category": "Events & Conferences"
+    },
+    {
+        "id": "gd-024",
+        "image": "graphic_designs/24.jpg",
+        "title": "Groupe Biblique Localité de Douala",
+        "category": "Events & Conferences"
+    },
+    {
+        "id": "gd-025",
+        "image": "graphic_designs/25.jpg",
+        "title": "Séminaire Localité de Douala GBEEC",
+        "category": "Events & Conferences"
+    },
+    {
+        "id": "gd-026",
+        "image": "graphic_designs/26.jpg",
+        "title": "Conférence Biblique Régionale Douala",
         "category": "Events & Conferences"
     },
     {
         "id": "gd-027",
-        "image": "New folder/1_flyer service.jpg",
-        "title": "Services de Design Graphique & Branding",
-        "category": "Business & Service Flyers"
+        "image": "graphic_designs/27.jpg",
+        "title": "Jeunesse Évangélique Bonabéri",
+        "category": "Events & Conferences"
     },
     {
         "id": "gd-028",
-        "image": "graphic_designs/22.jpg",
-        "title": "CodeJTV - Recrutement D\u00e9veloppeurs",
-        "category": "Social Media & Digital"
+        "image": "graphic_designs/28.png",
+        "title": "Affiche Révolution Spirituelle",
+        "category": "Events & Conferences"
     },
     {
         "id": "gd-029",
-        "image": "graphic_designs/23.jpg",
-        "title": "Campagne \u00c9tudiants & Membres GBEEC",
+        "image": "graphic_designs/29.png",
+        "title": "Art Festival Créatif - Composition",
         "category": "Events & Conferences"
     },
     {
         "id": "gd-030",
-        "image": "New folder/1_presence online.jpg",
-        "title": "Strat\u00e9gie de Visibilit\u00e9 Digitale & R\u00e9seaux",
-        "category": "Social Media & Digital"
+        "image": "graphic_designs/30.jpg",
+        "title": "Happy Birthday Mégane - Joyeux Anniversaire",
+        "category": "Birthdays & Celebrations"
     },
     {
         "id": "gd-031",
-        "image": "graphic_designs/24.jpg",
-        "title": "Groupe Biblique Localit\u00e9 de Douala",
-        "category": "Events & Conferences"
+        "image": "graphic_designs/31.png",
+        "title": "HomeJoyDeco - Recrutement Décorateur",
+        "category": "Business & Service Flyers"
     },
     {
         "id": "gd-032",
-        "image": "graphic_designs/25.jpg",
-        "title": "S\u00e9minaire Localit\u00e9 de Douala GBEEC",
-        "category": "Events & Conferences"
+        "image": "graphic_designs/32.jpg",
+        "title": "Soutien Scolaire à Domicile",
+        "category": "Business & Service Flyers"
     },
     {
         "id": "gd-033",
-        "image": "New folder/1_service video editing.jpg",
-        "title": "Service de Montage Vid\u00e9o Professionnel",
+        "image": "graphic_designs/33.jpg",
+        "title": "Centre de Révision Déjà Revision Center",
         "category": "Business & Service Flyers"
     },
     {
         "id": "gd-034",
-        "image": "graphic_designs/26.jpg",
-        "title": "Conf\u00e9rence Biblique R\u00e9gionale Douala",
+        "image": "graphic_designs/34.jpg",
+        "title": "Ministère Révolution - Foi & Vision",
         "category": "Events & Conferences"
     },
     {
         "id": "gd-035",
-        "image": "graphic_designs/27.jpg",
-        "title": "Jeunesse \u00c9vang\u00e9lique Bonab\u00e9ri",
+        "image": "graphic_designs/35.jpg",
+        "title": "Révolution Ministères Internationaux",
         "category": "Events & Conferences"
     },
     {
         "id": "gd-036",
-        "image": "New folder/1_studio.jpg",
-        "title": "Techman Studio - Laboratoire de Cr\u00e9ation",
-        "category": "Business & Service Flyers"
+        "image": "graphic_designs/36.jpg",
+        "title": "Affiche Conférence Évangélique",
+        "category": "Events & Conferences"
     },
     {
         "id": "gd-037",
-        "image": "graphic_designs/28.png",
-        "title": "Affiche R\u00e9volution Spirituelle",
+        "image": "graphic_designs/37.jpg",
+        "title": "Révolution - Culte de Louange",
         "category": "Events & Conferences"
     },
     {
         "id": "gd-038",
-        "image": "graphic_designs/29.png",
-        "title": "Art Festival Cr\u00e9atif - Composition",
+        "image": "graphic_designs/38.jpg",
+        "title": "Communauté Chrétienne John 3:16",
         "category": "Events & Conferences"
     },
     {
         "id": "gd-039",
-        "image": "New folder/1_website services.jpg",
-        "title": "Services de D\u00e9veloppement Web & UI/UX",
-        "category": "Business & Service Flyers"
+        "image": "graphic_designs/39.jpg",
+        "title": "Étude Biblique Internationale Révolution",
+        "category": "Events & Conferences"
     },
     {
         "id": "gd-040",
-        "image": "graphic_designs/30.jpg",
-        "title": "Happy Birthday M\u00e9gane - Joyeux Anniversaire",
-        "category": "Birthdays & Celebrations"
+        "image": "graphic_designs/40.jpg",
+        "title": "Camp d'Impact Révolution",
+        "category": "Events & Conferences"
     },
     {
         "id": "gd-041",
-        "image": "graphic_designs/31.png",
-        "title": "HomeJoyDeco - Recrutement D\u00e9corateur",
-        "category": "Business & Service Flyers"
+        "image": "graphic_designs/41.jpg",
+        "title": "Jeunes Engagés Pour la Paix & l'Unité",
+        "category": "Events & Conferences"
     },
     {
         "id": "gd-042",
-        "image": "New folder/1k linkedin.jpg",
-        "title": "C\u00e9l\u00e9bration Cap des 1000 Abonn\u00e9s LinkedIn",
-        "category": "Social Media & Digital"
+        "image": "graphic_designs/42.jpg",
+        "title": "Emblème Géométrique Minimaliste",
+        "category": "Brand Identity & Packaging"
     },
     {
         "id": "gd-043",
-        "image": "graphic_designs/32.jpg",
-        "title": "Soutien Scolaire \u00e0 Domicile",
-        "category": "Business & Service Flyers"
+        "image": "graphic_designs/43.jpg",
+        "title": "Badge Événementiel Corporate",
+        "category": "Brand Identity & Packaging"
     },
     {
         "id": "gd-044",
-        "image": "graphic_designs/33.jpg",
-        "title": "Centre de R\u00e9vision D\u00e9j\u00e0 Revision Center",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-045",
-        "image": "New folder/2.jpg",
-        "title": "Affiche Artistique Abstraite Minimaliste",
-        "category": "Social Media & Digital"
-    },
-    {
-        "id": "gd-046",
-        "image": "graphic_designs/34.jpg",
-        "title": "Minist\u00e8re R\u00e9volution - Foi & Vision",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-047",
-        "image": "graphic_designs/35.jpg",
-        "title": "R\u00e9volution Minist\u00e8res Internationaux",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-048",
-        "image": "New folder/LOGO PRINCIPALE.png",
-        "title": "Techman - Logo Principal Officiel",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-049",
-        "image": "graphic_designs/36.jpg",
-        "title": "Affiche Conf\u00e9rence \u00c9vang\u00e9lique",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-050",
-        "image": "graphic_designs/37.jpg",
-        "title": "R\u00e9volution - Culte de Louange",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-051",
-        "image": "New folder/Visuel 10.jpg",
-        "title": "Festival Musical Live Summer Beats",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-052",
-        "image": "graphic_designs/38.jpg",
-        "title": "Communaut\u00e9 Chr\u00e9tienne John 3:16",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-053",
-        "image": "graphic_designs/39.jpg",
-        "title": "\u00c9tude Biblique Internationale R\u00e9volution",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-054",
-        "image": "New folder/Visuel 11.jpg",
-        "title": "Sommet International Innovation Summit",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-055",
-        "image": "graphic_designs/40.jpg",
-        "title": "Camp d'Impact R\u00e9volution",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-056",
-        "image": "graphic_designs/41.jpg",
-        "title": "Jeunes Engag\u00e9s Pour la Paix & l'Unit\u00e9",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-057",
-        "image": "New folder/Visuel 13.jpg",
-        "title": "Lancement de Produit High-Tech",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-058",
-        "image": "graphic_designs/42.jpg",
-        "title": "Embl\u00e8me G\u00e9om\u00e9trique Minimaliste",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-059",
-        "image": "graphic_designs/43.jpg",
-        "title": "Badge \u00c9v\u00e9nementiel Corporate",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-060",
-        "image": "New folder/Visuel 15.jpg",
-        "title": "Promo Sp\u00e9ciale M\u00e9ga Soldes Limit\u00e9es",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-061",
         "image": "graphic_designs/ANANAS DANIELLE.png",
         "title": "Packaging Jus d'Ananas Danielle Naturel",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-062",
+        "id": "gd-045",
         "image": "graphic_designs/BANDEROLE JZ L.jpg",
         "title": "Banderole Grand Format JZ Pressing",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-063",
-        "image": "New folder/Visuel 16.jpg",
-        "title": "Offre Immobili\u00e8re R\u00e9sidences de Standing",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-064",
+        "id": "gd-046",
         "image": "graphic_designs/BAOBAB DANIE.png",
-        "title": "\u00c9tiquette Bouteille Jus de Baobab Danie",
+        "title": "Étiquette Bouteille Jus de Baobab Danie",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-065",
+        "id": "gd-047",
         "image": "graphic_designs/EMMA BIRTHDAY1.jpg",
-        "title": "V\u0153ux d'Anniversaire Emma - B\u00e9n\u00e9diction",
+        "title": "Vœux d'Anniversaire Emma - Bénédiction",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-066",
-        "image": "New folder/WhatsApp Image 2026-05-31 at 09.30.25.jpeg",
-        "title": "Soir\u00e9e Networking Rencontre Communautaire",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-067",
+        "id": "gd-048",
         "image": "graphic_designs/Etiquette berger.png",
-        "title": "\u00c9tiquette Produit Agroalimentaire Berger",
+        "title": "Étiquette Produit Agroalimentaire Berger",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-068",
+        "id": "gd-049",
         "image": "graphic_designs/Etiquette yayourt0.5LO.png",
-        "title": "Packaging \u00c9tiquette Yaourt Vanille 0.5L",
+        "title": "Packaging Étiquette Yaourt Vanille 0.5L",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-069",
-        "image": "New folder/a805b3ae-8bf7-41f5-a451-081779ff7686.png",
-        "title": "Mockup Papeterie & Identit\u00e9 Visuelle",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-070",
+        "id": "gd-050",
         "image": "graphic_designs/FINAL FRONT.png",
         "title": "Carte de Visite Recto Manou Pretty Design",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-071",
+        "id": "gd-051",
         "image": "graphic_designs/FINAL.png",
         "title": "Carte de Visite Verso Manou Pretty Interior",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-072",
-        "image": "New folder/alliance facebook.png",
-        "title": "Banni\u00e8re Facebook Alliance Corporate",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-073",
+        "id": "gd-052",
         "image": "graphic_designs/LED LIGHT SMARTPHONE - Copie.jpg",
         "title": "Spot Promo LED Light Smartphone",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-074",
+        "id": "gd-053",
         "image": "graphic_designs/October welcome25.jpg",
-        "title": "V\u0153ux de Bienvenue Octobre Heureux",
+        "title": "Vœux de Bienvenue Octobre Heureux",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-076",
+        "id": "gd-054",
         "image": "graphic_designs/PUB 2.jpg",
-        "title": "Affiche Techman237 - Vos Pens\u00e9es en Visuel",
+        "title": "Affiche Techman237 - Vos Pensées en Visuel",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-077",
+        "id": "gd-055",
         "image": "graphic_designs/SALIM.png",
-        "title": "Programme de Recueillement Fun\u00e9raire Salim",
+        "title": "Programme de Recueillement Funéraire Salim",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-078",
-        "image": "New folder/eclipse noir.png",
-        "title": "Logo Eclipse - Version Noire Contrast\u00e9e",
-        "category": "Brand Identity & Packaging"
-    },
-    {
-        "id": "gd-079",
+        "id": "gd-056",
         "image": "graphic_designs/Sans titre-1.jpg",
-        "title": "Harmonious Exteriors - Architecture Paysag\u00e8re",
+        "title": "Harmonious Exteriors - Architecture Paysagère",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-080",
+        "id": "gd-057",
         "image": "graphic_designs/WELCOME TO NOVEMBER 2.jpg",
         "title": "Bienvenue au Mois de Novembre - Le Vrai Ndem",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-081",
-        "image": "New folder/visuel 1.jpg",
-        "title": "Citation Inspirationnelle Cr\u00e9ativit\u00e9 Digitale",
-        "category": "Social Media & Digital"
-    },
-    {
-        "id": "gd-082",
+        "id": "gd-058",
         "image": "graphic_designs/bissap danie.png",
-        "title": "Packaging \u00c9tiquette Jus de Bissap Danie",
+        "title": "Packaging Étiquette Jus de Bissap Danie",
         "category": "Brand Identity & Packaging"
     },
     {
-        "id": "gd-083",
+        "id": "gd-059",
         "image": "graphic_designs/cbc flyer.jpg",
-        "title": "Op\u00e9ration \u00c9tude Biblique Mai 2024",
+        "title": "Opération Étude Biblique Mai 2024",
         "category": "Events & Conferences"
     },
     {
-        "id": "gd-084",
-        "image": "New folder/visuel 12.jpg",
-        "title": "Exposition d'Art & Design Contemporain",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-085",
+        "id": "gd-060",
         "image": "graphic_designs/cbc10.jpg",
-        "title": "Culte \u00c9glise Baptiste Akwa Nord",
+        "title": "Culte Église Baptiste Akwa Nord",
         "category": "Events & Conferences"
     },
     {
-        "id": "gd-086",
+        "id": "gd-061",
         "image": "graphic_designs/foumban.jpg",
-        "title": "\u00c9tude Biblique Internationale Foumban",
+        "title": "Étude Biblique Internationale Foumban",
         "category": "Events & Conferences"
     },
     {
-        "id": "gd-087",
-        "image": "New folder/visuel 17.jpg",
-        "title": "Affiche Exposition Typographique & Arts",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-088",
+        "id": "gd-062",
         "image": "graphic_designs/jonathan BIRTHDAY.jpg",
         "title": "Affiche Anniversaire Jonathan Wandji President",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-089",
+        "id": "gd-063",
         "image": "graphic_designs/le vrai ndem4.jpg",
-        "title": "Visuel Th\u00e9matique 'Le Vrai Ndem C'est Quoi ?'",
+        "title": "Visuel Thématique 'Le Vrai Ndem C'est Quoi ?'",
         "category": "Social Media & Digital"
     },
     {
-        "id": "gd-090",
-        "image": "New folder/visuel 19.jpg",
-        "title": "Tech Talk Podcast Hebdomadaire",
-        "category": "Social Media & Digital"
-    },
-    {
-        "id": "gd-091",
+        "id": "gd-064",
         "image": "graphic_designs/mjn.png",
         "title": "Grille Tarifaire Pressing & Blanchisserie",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-092",
+        "id": "gd-065",
         "image": "graphic_designs/multi clone.jpg",
         "title": "Trust The Process - Visuel Typographique",
         "category": "Social Media & Digital"
     },
     {
-        "id": "gd-093",
-        "image": "New folder/visuel 2.jpg",
-        "title": "Programme Coaching Fitness & Sant\u00e9",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-094",
+        "id": "gd-066",
         "image": "graphic_designs/pascal 3.png",
         "title": "Bittem Molyko - Celebration Service",
         "category": "Events & Conferences"
     },
     {
-        "id": "gd-095",
+        "id": "gd-067",
         "image": "graphic_designs/pub graphism2.jpg",
         "title": "Offre Conception Graphique Prix Abordable",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-096",
-        "image": "New folder/visuel 3.jpg",
-        "title": "Menu Gastronomique & Offre Restauration",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-097",
+        "id": "gd-068",
         "image": "graphic_designs/pub3 - Copy.png",
         "title": "Promotion d'Ouverture JZ Pressing Kilos",
         "category": "Business & Service Flyers"
     },
     {
-        "id": "gd-098",
+        "id": "gd-069",
         "image": "graphic_designs/stephane 2.png",
-        "title": "Joyeux Anniversaire St\u00e9phane - C\u00e9l\u00e9bration",
+        "title": "Joyeux Anniversaire Stéphane - Célébration",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-099",
-        "image": "New folder/visuel 4.jpg",
-        "title": "Pr\u00e9sentation Fonctionnalit\u00e9s Application Mobile",
-        "category": "Social Media & Digital"
-    },
-    {
-        "id": "gd-100",
+        "id": "gd-070",
         "image": "graphic_designs/suit.jpg",
-        "title": "Affiche \u00c9l\u00e9gante Anniversaire Ami",
+        "title": "Affiche Élégante Anniversaire Ami",
         "category": "Birthdays & Celebrations"
     },
     {
-        "id": "gd-101",
+        "id": "gd-071",
         "image": "graphic_designs/techman happychristmas.jpg",
-        "title": "V\u0153ux de No\u00ebl & Nouvel An Techman",
+        "title": "Vœux de Noël & Nouvel An Techman",
         "category": "Birthdays & Celebrations"
-    },
-    {
-        "id": "gd-102",
-        "image": "New folder/visuel 5.jpg",
-        "title": "Conseils & Astuces Ma\u00eetrise du Design",
-        "category": "Social Media & Digital"
-    },
-    {
-        "id": "gd-103",
-        "image": "New folder/visuel 6.jpg",
-        "title": "Journ\u00e9e d'Orientation & Accueil Campus",
-        "category": "Events & Conferences"
-    },
-    {
-        "id": "gd-104",
-        "image": "New folder/visuel 7.jpg",
-        "title": "Nouvelle Collection Mode & Pr\u00eat-\u00e0-Porter",
-        "category": "Business & Service Flyers"
-    },
-    {
-        "id": "gd-105",
-        "image": "New folder/visuel 8.jpg",
-        "title": "Soir\u00e9e Pitch & Rencontre Entrepreneurs",
-        "category": "Events & Conferences"
     }
 ];
 
@@ -1223,7 +1025,7 @@ const CATEGORY_COVERS = {
     "Events & Conferences": "graphic_designs/4.jpg",
     "Birthdays & Celebrations": "graphic_designs/13.jpg",
     "Brand Identity & Packaging": "graphic_designs/FINAL FRONT.png",
-    "Social Media & Digital": "New folder/1k linkedin.jpg"
+    "Social Media & Digital": "graphic_designs/7.jpg"
 };
 
 const CATEGORY_NAMES = {

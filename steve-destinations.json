@@ -1,0 +1,352 @@
+[
+  {
+    "id": "sec-home",
+    "name": "Home",
+    "label_fr": "Accueil",
+    "label_en": "Home",
+    "description": "Main welcome screen introducing Steeve Zali (TECHMAN), Computer Science Level 300 student at the University of Buea.",
+    "type": "section",
+    "destination": "index.html?dest=sec-home",
+    "action": "navigatePortfolioSection('sec-home')"
+  },
+  {
+    "id": "sec-about",
+    "name": "About Me — Who Am I",
+    "label_fr": "À Propos (Qui suis-je)",
+    "label_en": "About Me (Who Am I)",
+    "description": "Personal presentation and biography of Steeve Zali (TECHMAN), blending computer science, graphic design, and video editing.",
+    "type": "section",
+    "destination": "index.html?dest=sec-about",
+    "action": "navigatePortfolioSection('sec-about')"
+  },
+  {
+    "id": "sec-about-passion",
+    "name": "About Me — Passions & Interests",
+    "label_fr": "Passions & Intérêts",
+    "label_en": "Passions & Interests",
+    "description": "Dynamic sub-tab in About Me describing Steeve's passions for software development, visual aesthetics, digital media, and community impact.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-about-passion",
+    "action": "navigatePortfolioSection('sec-about-passion')"
+  },
+  {
+    "id": "sec-about-career",
+    "name": "About Me — Career Goals",
+    "label_fr": "Objectifs de Carrière",
+    "label_en": "Career Goals",
+    "description": "Dynamic sub-tab in About Me detailing Steeve's short-term academic/freelance goals and long-term ambition to become a Software Engineer and Tech Director.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-about-career",
+    "action": "navigatePortfolioSection('sec-about-career')"
+  },
+  {
+    "id": "sec-skills",
+    "name": "Skills — TECHFields (Programming & Web/Mobile/DB)",
+    "label_fr": "Compétences Tech & Dev",
+    "label_en": "Tech & Dev Skills",
+    "description": "Technical skills section covering programming, software development, web development, mobile app development, and database management.",
+    "type": "section",
+    "destination": "index.html?dest=sec-skills",
+    "action": "navigatePortfolioSection('sec-skills')"
+  },
+  {
+    "id": "sec-skills-graphic",
+    "name": "Skills — Graphic Design Software",
+    "label_fr": "Compétences Design Graphique",
+    "label_en": "Graphic Design Skills",
+    "description": "Dynamic sub-tab in Skills listing PC software (Photoshop, Illustrator, Figma, Canva) and mobile apps (PosterMyWall, Canva, Flyers Maker, PixelLab).",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-skills-graphic",
+    "action": "navigatePortfolioSection('sec-skills-graphic')"
+  },
+  {
+    "id": "sec-skills-video",
+    "name": "Skills — Video Editing Software",
+    "label_fr": "Compétences Montage Vidéo",
+    "label_en": "Video Editing Skills",
+    "description": "Dynamic sub-tab in Skills listing PC video tools (Adobe Premiere Pro, CapCut Pro, KineMaster) and mobile video tools (CapCut Pro, KineMaster Pro, InShot, YouCut).",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-skills-video",
+    "action": "navigatePortfolioSection('sec-skills-video')"
+  },
+  {
+    "id": "sec-skills-teach",
+    "name": "Skills — Teaching & Tutoring",
+    "label_fr": "Compétences Enseignement",
+    "label_en": "Teaching Skills",
+    "description": "Dynamic sub-tab in Skills describing Steeve's experience teaching mathematics, science, and computer science to students of all ages.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-skills-teach",
+    "action": "navigatePortfolioSection('sec-skills-teach')"
+  },
+  {
+    "id": "sec-skills-content",
+    "name": "Skills — Content Creation",
+    "label_fr": "Compétences Création de Contenu",
+    "label_en": "Content Creation Skills",
+    "description": "Dynamic sub-tab in Skills describing Steeve's experience in digital content creation, video editing, graphic design, and social media management.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-skills-content",
+    "action": "navigatePortfolioSection('sec-skills-content')"
+  },
+  {
+    "id": "sec-projects-tech",
+    "name": "Projects — In TECHFields (Web & Software Projects)",
+    "label_fr": "Voir les Projets Tech & Web",
+    "label_en": "View Tech & Web Projects",
+    "description": "Main projects section displaying cards for SAFECHILD, MY PORTFOLIO, DEVOPS PORTFOLIO, GO CLONE, and ROCK ATTITUDE SHOWCASE WEBSITE.",
+    "type": "section",
+    "destination": "index.html?dest=sec-projects-tech",
+    "action": "navigatePortfolioSection('sec-projects-tech')"
+  },
+  {
+    "id": "sec-projects-graphic",
+    "name": "Projects — Graphic Design Gallery (All Designs)",
+    "label_fr": "Galerie Design Graphique",
+    "label_en": "Graphic Design Gallery",
+    "description": "Interactive gallery in Projects & Experiences showcasing 71 graphic design creations with lightbox modal preview.",
+    "type": "section",
+    "destination": "index.html?dest=sec-projects-graphic",
+    "action": "navigatePortfolioSection('sec-projects-graphic')"
+  },
+  {
+    "id": "sec-projects-graphic-cats",
+    "name": "Projects — Graphic Design Categories (Folders View)",
+    "label_fr": "Catégories Design Graphique",
+    "label_en": "Graphic Design Categories",
+    "description": "Folder view of the 5 graphic design categories: Business & Services, Events & Conferences, Birthdays & Celebrations, Branding & Packaging, Social Media & Digital.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-projects-graphic-cats",
+    "action": "navigatePortfolioSection('sec-projects-graphic-cats')"
+  },
+  {
+    "id": "cat-business-flyers",
+    "name": "Graphic Category — Business & Service Flyers",
+    "label_fr": "Design : Entreprises & Services",
+    "label_en": "Design: Business & Services",
+    "description": "Opens the Business & Service Flyers category inside the Graphic Design gallery (HomeJoyDeco, Garage Ismael, Techman237, JZ Pressing, Imac Assurance, etc.).",
+    "type": "category",
+    "destination": "index.html?dest=cat-business-flyers",
+    "action": "navigatePortfolioSection('cat-business-flyers')"
+  },
+  {
+    "id": "cat-events",
+    "name": "Graphic Category — Events & Conferences",
+    "label_fr": "Design : Événements & Conférences",
+    "label_en": "Design: Events & Conferences",
+    "description": "Opens the Events & Conferences category inside the Graphic Design gallery (GBEEC Douala, Révolution, Foumban, CBC, Art Festival, etc.).",
+    "type": "category",
+    "destination": "index.html?dest=cat-events",
+    "action": "navigatePortfolioSection('cat-events')"
+  },
+  {
+    "id": "cat-birthdays",
+    "name": "Graphic Category — Birthdays & Celebrations",
+    "label_fr": "Design : Anniversaires & Célébrations",
+    "label_en": "Design: Birthdays & Celebrations",
+    "description": "Opens the Birthdays & Celebrations category inside the Graphic Design gallery (Birthday flyers, Christmas greetings, monthly welcome posters).",
+    "type": "category",
+    "destination": "index.html?dest=cat-birthdays",
+    "action": "navigatePortfolioSection('cat-birthdays')"
+  },
+  {
+    "id": "cat-branding",
+    "name": "Graphic Category — Brand Identity & Packaging",
+    "label_fr": "Design : Identité & Packaging",
+    "label_en": "Design: Branding & Packaging",
+    "description": "Opens the Brand Identity & Packaging category inside the Graphic Design gallery (Danielle/Danie juice labels, Berger label, Yogurt label, Manou Pretty Design business cards, JZ Pressing banner).",
+    "type": "category",
+    "destination": "index.html?dest=cat-branding",
+    "action": "navigatePortfolioSection('cat-branding')"
+  },
+  {
+    "id": "cat-social-media",
+    "name": "Graphic Category — Social Media & Digital",
+    "label_fr": "Design : Réseaux Sociaux & Digital",
+    "label_en": "Design: Social Media & Digital",
+    "description": "Opens the Social Media & Digital category inside the Graphic Design gallery (CodeJTV Tech, Tekmei Olut, 500 Subscribers, Le Vrai Ndem, Trust The Process).",
+    "type": "category",
+    "destination": "index.html?dest=cat-social-media",
+    "action": "navigatePortfolioSection('cat-social-media')"
+  },
+  {
+    "id": "sec-projects-video",
+    "name": "Projects — Video Editing Showreel Gallery",
+    "label_fr": "Galerie Montage Vidéo",
+    "label_en": "Video Editing Gallery",
+    "description": "Dynamic section in Projects & Experiences showing 6 video editing thumbnails that open in a fullscreen YouTube video player modal.",
+    "type": "section",
+    "destination": "index.html?dest=sec-projects-video",
+    "action": "navigatePortfolioSection('sec-projects-video')"
+  },
+  {
+    "id": "modal-video-1",
+    "name": "Video Modal — Showreel Video #1",
+    "label_fr": "Lire la Vidéo #1",
+    "label_en": "Play Video #1",
+    "description": "Directly opens the video modal player with Steeve's first featured edited video (YouTube ID: 9D5w6qTOuUA).",
+    "type": "modal",
+    "destination": "index.html?dest=modal-video-1",
+    "action": "navigatePortfolioSection('modal-video-1')"
+  },
+  {
+    "id": "sec-projects-teach",
+    "name": "Projects — In Teaching Field",
+    "label_fr": "Expérience Enseignement",
+    "label_en": "Teaching Experience",
+    "description": "Dynamic sub-tab in Projects & Experiences highlighting Steeve's work teaching mathematics, science, and computer science.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-projects-teach",
+    "action": "navigatePortfolioSection('sec-projects-teach')"
+  },
+  {
+    "id": "sec-projects-content",
+    "name": "Projects — As Content Creator",
+    "label_fr": "Expérience Créateur de Contenu",
+    "label_en": "Content Creator Experience",
+    "description": "Dynamic sub-tab in Projects & Experiences highlighting Steeve's content creation and social media management work.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-projects-content",
+    "action": "navigatePortfolioSection('sec-projects-content')"
+  },
+  {
+    "id": "sec-education",
+    "name": "Education — Academic Background",
+    "label_fr": "Parcours & Éducation",
+    "label_en": "Education & Background",
+    "description": "Dynamic section showing Steeve's academic background (GCE Advanced Level 2024 at IMHOTEP GREAT SCHOOL, BSc Computer Science Level 300 at University of Buea, freeCodeCamp, W3Schools).",
+    "type": "section",
+    "destination": "index.html?dest=sec-education",
+    "action": "navigatePortfolioSection('sec-education')"
+  },
+  {
+    "id": "page-safechild",
+    "name": "SAFECHILD — Access Credentials Page",
+    "label_fr": "Projet SAFECHILD (Accès & Démo)",
+    "label_en": "SAFECHILD Project (Access & Demo)",
+    "description": "Dedicated internal page (safechild-info.html) providing demo login credentials (user@test.com / user123) and direct access to the SAFECHILD missing-children platform.",
+    "type": "route",
+    "destination": "safechild-info.html",
+    "action": "window.location.href = 'safechild-info.html'"
+  },
+  {
+    "id": "ext-safechild-app",
+    "name": "SAFECHILD — Live Web Application",
+    "label_fr": "Ouvrir l'application SAFECHILD",
+    "label_en": "Open SAFECHILD Web App",
+    "description": "External live deployment of the SAFECHILD platform on Vercel.",
+    "type": "external",
+    "destination": "https://safechild.vercel.app/",
+    "action": "window.open('https://safechild.vercel.app/', '_blank')"
+  },
+  {
+    "id": "ext-myportfolio",
+    "name": "MY PORTFOLIO — Live Vercel Deployment",
+    "label_fr": "Voir Mon Portfolio (Vercel)",
+    "label_en": "View My Portfolio (Vercel)",
+    "description": "Live hosted URL of Steeve Zali's personal portfolio website.",
+    "type": "external",
+    "destination": "https://myportfolio-alpha-pearl.vercel.app/",
+    "action": "window.open('https://myportfolio-alpha-pearl.vercel.app/', '_blank')"
+  },
+  {
+    "id": "ext-devops-portfolio",
+    "name": "DEVOPS PORTFOLIO — Apollos Portfolio",
+    "label_fr": "Voir le Portfolio DevOps",
+    "label_en": "View DevOps Portfolio",
+    "description": "Portfolio website built by Steeve to assist a senior in the tech/DevOps domain (Apollos).",
+    "type": "external",
+    "destination": "https://portfolio-apollos.vercel.app/",
+    "action": "window.open('https://portfolio-apollos.vercel.app/', '_blank')"
+  },
+  {
+    "id": "ext-goclone",
+    "name": "GO CLONE — University Campus Portal Clone",
+    "label_fr": "Voir le projet GO CLONE",
+    "label_en": "View GO CLONE Project",
+    "description": "Web project cloning the University of Buea student campus portal.",
+    "type": "external",
+    "destination": "https://student-portal-seven-nu.vercel.app/",
+    "action": "window.open('https://student-portal-seven-nu.vercel.app/', '_blank')"
+  },
+  {
+    "id": "ext-rock-attitude",
+    "name": "ROCK ATTITUDE — Enterprise Showcase Website",
+    "label_fr": "Voir le site Rock Attitude",
+    "label_en": "View Rock Attitude Website",
+    "description": "Showcase website built and delivered for the enterprise Rock Attitude.",
+    "type": "external",
+    "destination": "https://rock-attitude-website.vercel.app/",
+    "action": "window.open('https://rock-attitude-website.vercel.app/', '_blank')"
+  },
+  {
+    "id": "page-testimonials",
+    "name": "Testimonials Page",
+    "label_fr": "Voir les Témoignages",
+    "label_en": "View Testimonials",
+    "description": "Dedicated page (testimonials.html) featuring 6 verified client, partner, and peer reviews (Asaph N., Laurent, Komze William, Ariel Kafto, Ange Youmsi, Jordan Azapgue).",
+    "type": "route",
+    "destination": "testimonials.html",
+    "action": "window.location.href = 'testimonials.html'"
+  },
+  {
+    "id": "file-cv",
+    "name": "Download CV (ZALI.pdf)",
+    "label_fr": "Télécharger le C.V (PDF)",
+    "label_en": "Download C.V (PDF)",
+    "description": "Direct download of Steeve Zali's Curriculum Vitae PDF file (ZALI.pdf).",
+    "type": "file",
+    "destination": "ZALI.pdf",
+    "action": "downloadCV()"
+  },
+  {
+    "id": "contact-linkedin",
+    "name": "LinkedIn Profile",
+    "label_fr": "Profil LinkedIn",
+    "label_en": "LinkedIn Profile",
+    "description": "Steeve Zali's official LinkedIn profile (steeve-zali-5a70b6379).",
+    "type": "external",
+    "destination": "https://www.linkedin.com/in/steeve-zali-5a70b6379",
+    "action": "window.open('https://www.linkedin.com/in/steeve-zali-5a70b6379', '_blank')"
+  },
+  {
+    "id": "contact-github",
+    "name": "GitHub Profile (TECHMAN237)",
+    "label_fr": "Profil GitHub",
+    "label_en": "GitHub Profile",
+    "description": "Steeve Zali's official GitHub account (TECHMAN237).",
+    "type": "external",
+    "destination": "https://github.com/TECHMAN237",
+    "action": "window.open('https://github.com/TECHMAN237', '_blank')"
+  },
+  {
+    "id": "contact-whatsapp",
+    "name": "WhatsApp Direct Contact",
+    "label_fr": "Contacter sur WhatsApp",
+    "label_en": "Chat on WhatsApp",
+    "description": "Direct WhatsApp conversation with Steeve Zali at +237 697 368 251.",
+    "type": "external",
+    "destination": "https://wa.me/+237697368251",
+    "action": "window.open('https://wa.me/+237697368251', '_blank')"
+  },
+  {
+    "id": "contact-phone",
+    "name": "Phone Call (+237 697 368 251)",
+    "label_fr": "Appeler (+237 697 368 251)",
+    "label_en": "Call (+237 697 368 251)",
+    "description": "Direct phone call link to Steeve Zali (+237 697 368 251).",
+    "type": "external",
+    "destination": "tel:+237697368251",
+    "action": "window.location.href = 'tel:+237697368251'"
+  },
+  {
+    "id": "action-lang-toggle",
+    "name": "Switch Portfolio Language (FR / EN)",
+    "label_fr": "Changer la langue (FR/EN)",
+    "label_en": "Switch Language (FR/EN)",
+    "description": "Toggles the portfolio interface language between French and English.",
+    "type": "action",
+    "destination": "javascript:toggleLanguage()",
+    "action": "toggleLanguage()"
+  }
+]
