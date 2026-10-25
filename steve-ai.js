@@ -92,7 +92,12 @@
     { id: 'contact-github', label_fr: 'Profil GitHub', label_en: 'GitHub Profile', type: 'external', destination: 'https://github.com/TECHMAN237' },
     { id: 'contact-whatsapp', label_fr: 'Contacter sur WhatsApp', label_en: 'Chat on WhatsApp', type: 'external', destination: 'https://wa.me/+237697368251' },
     { id: 'contact-phone', label_fr: 'Appeler (+237 697 368 251)', label_en: 'Call (+237 697 368 251)', type: 'external', destination: 'tel:+237697368251' },
-    { id: 'action-lang-toggle', label_fr: 'Changer la langue (FR/EN)', label_en: 'Switch Language (FR/EN)', type: 'action', destination: 'javascript:toggleLanguage()' }
+    { id: 'action-lang-toggle', label_fr: 'Changer la langue (FR/EN)', label_en: 'Switch Language (FR/EN)', type: 'action', destination: 'javascript:toggleLanguage()' },
+    { id: 'project-raydar', label_fr: 'Initiative RAYDAR & SafeChild', label_en: 'RAYDAR & SafeChild Initiative', type: 'route', destination: 'safechild-info.html' },
+    { id: 'project-xena', label_fr: 'XENA AI (Agent IA Étudiant)', label_en: 'XENA AI (Student AI Agent)', type: 'section', destination: 'index.html?dest=sec-skills' },
+    { id: 'about-tekmen', label_fr: 'TekMen Revolution (Vision & Agence)', label_en: 'TekMen Revolution (Vision & Agency)', type: 'sub-section', destination: 'index.html?dest=sec-about-career' },
+    { id: 'info-fonds-proto', label_fr: 'Fonds Proto (Lauréat APME)', label_en: 'Fonds Proto (APME Laureate)', type: 'section', destination: 'index.html?dest=sec-education' },
+    { id: 'info-mount-fako', label_fr: 'Ascension Mont Fako (4095m)', label_en: 'Mount Fako Summit (4095m)', type: 'section', destination: 'index.html?dest=sec-education' }
   ];
 
   DEFAULT_DESTINATIONS.forEach(d => {
@@ -106,62 +111,116 @@
     return localStorage.getItem('lang') || 'fr';
   }
 
-  // Client-side knowledge base fallback so TECHMAN AI works even offline
+  // Client-side knowledge base fallback so TECHMAN AI radiates the passionate fan persona even offline
   function resolveClientFallback(rawMessage, lang) {
     const q = (rawMessage || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const isEn = lang === 'en' || /\b(who|what|where|show|tell|can you|how|projects|skills|about|contact|resume)\b/.test(q);
     const wantOpen = /\b(montre|voir|ouvre|afficher|emmene|va |aller|ou sont|ou est|show|open|view|see|take me|go to)\b/.test(q);
 
-    if (q.includes('raydar')) {
+    if (q.includes('raydar') || q.includes('safechild') || q.includes('safe child') || q.includes('enfant') || q.includes('missing child')) {
       return {
         reply: isEn
-          ? 'There is no project named **RAYDAR** in Steeve Zali\'s portfolio. Here are his actual web projects (**SAFECHILD**, **Rock Attitude**, **GO CLONE**, **DevOps Portfolio**) and design galleries:'
-          : 'Le projet **RAYDAR** ne figure pas dans le portfolio de Steeve Zali (TECHMAN). Voici en revanche ses véritables projets web (**SAFECHILD**, **Rock Attitude**, **GO CLONE**, **Portfolio DevOps**) ainsi que sa galerie de design :',
-        destinations: ['sec-projects-tech', 'page-safechild', 'sec-projects-graphic'],
-        autoNavigate: false
+          ? 'Steeve Zali is deeply committed to child safety! Through the **RAYDAR** initiative and the **SafeChild** platform (with team Code4Safety, interviewed live on **Radio Dash Media** in Douala), he builds real-time alerts and community reporting to protect missing children. You can test the SafeChild demo or open the live app below:'
+          : 'Steeve Zali est un ardent défenseur de la sécurité des enfants ! Avec l\'initiative **RAYDAR** et la plateforme **SafeChild** (avec son équipe Code4Safety, interviewée en direct sur **Radio Dash Media** à Douala), Steeve met la technologie au service de la protection des enfants et de l\'alerte citoyenne. Découvrez la démo et l\'application ci-dessous :',
+        destinations: ['project-raydar', 'page-safechild', 'ext-safechild-app', 'sec-projects-tech'],
+        autoNavigate: wantOpen
       };
     }
-    if (q.includes('safechild') || q.includes('safe child') || q.includes('enfant')) {
+    if (q.includes('xena') || q.includes('xenaai') || q.includes('compagnon') || q.includes('agent ia') || q.includes('voice reminder') || q.includes('rappel vocal')) {
       return {
         reply: isEn
-          ? '**SAFECHILD** is a web platform designed by Steeve to reduce the rate of missing children in the community (demo login: `user@test.com` / `user123`).'
-          : '**SAFECHILD** est une plateforme web conçue par Steeve pour réduire le taux d\'enfants disparus dans la communauté (identifiants démo : `user@test.com` / `user123`).',
-        destinations: ['page-safechild', 'ext-safechild-app', 'sec-projects-tech'],
-        autoNavigate: false
+          ? '**XENA AI** is Steeve\'s groundbreaking student AI companion! Built with React Native, Supabase, Python (FastAPI), Whisper voice recognition, and LLMs, it delivers smart voice reminders and academic tracking. Steeve showcased it at the **Ignite Your Future Tech Fair 2026**!'
+          : '**XENA AI**, c\'est le formidable projet d\'agent IA compagnon pour étudiants imaginé par Steeve ! Conçu avec React Native, Supabase, Python (FastAPI), Whisper et des modèles de langage, il propose des rappels vocaux intelligents et un suivi d\'études. Steeve l\'a brillamment présenté à l\'**Ignite Your Future Tech Fair 2026** !',
+        destinations: ['project-xena', 'sec-skills', 'sec-projects-tech'],
+        autoNavigate: wantOpen
       };
     }
-    if (q.includes('video') || q.includes('montage') || q.includes('premiere') || q.includes('capcut')) {
+    if (q.includes('tekmen') || q.includes('techmen revolution') || q.includes('revolution') || q.includes('agence') || q.includes('entreprise') || q.includes('agency')) {
       return {
         reply: isEn
-          ? 'Here is Steeve\'s **Video Editing Gallery** and software skills (Adobe Premiere Pro, CapCut Pro, KineMaster, InShot, YouCut):'
-          : 'Voici la **Galerie de Montage Vidéo** de Steeve ainsi que ses compétences (Adobe Premiere Pro, CapCut Pro, KineMaster, InShot, YouCut) :',
+          ? '**TekMen Revolution** is the bold entrepreneurial vision founded by Steeve Zali! It represents a tech movement and creative digital agency dedicated to web development, mobile apps, graphic design, video editing, and impactful technology that changes lives!'
+          : '**TekMen Revolution**, c\'est la grande vision entrepreneuriale propulsée par Steeve Zali ! C\'est un mouvement technologique et une agence numérique d\'élite dédiée au développement web, aux applications mobiles, au design graphique, à la vidéo et aux solutions concrètes pour la communauté !',
+        destinations: ['about-tekmen', 'sec-about-career', 'sec-projects-tech', 'contact-whatsapp'],
+        autoNavigate: wantOpen
+      };
+    }
+    if (q.includes('proto') || q.includes('fonds proto') || q.includes('apme') || q.includes('17') || q.includes('2900') || q.includes('2915') || q.includes('subvention') || q.includes('pitch')) {
+      return {
+        reply: isEn
+          ? 'What an incredible achievement! In the 6th edition of **Fonds Proto** (APME Cameroon), Steeve and his team ranked **17th overall out of more than 2,915 applications**, standing out among the 51 finalists and securing **FCFA 1,500,000 in funding**!'
+          : 'Quelle immense fierté ! Lors de la 6e édition du **Fonds Proto** (APME Cameroun), Steeve et son équipe se sont hissés à la **17e place sur plus de 2 915 candidatures**, figurant parmi les 51 finalistes et remportant un financement de **1 500 000 FCFA** !',
+        destinations: ['info-fonds-proto', 'sec-education', 'file-cv'],
+        autoNavigate: wantOpen
+      };
+    }
+    if (q.includes('fako') || q.includes('mont cameroun') || q.includes('mount cameroon') || q.includes('sommet') || q.includes('ascension') || q.includes('montagne') || q.includes('peak')) {
+      return {
+        reply: isEn
+          ? 'Talk about resilience and mental toughness! In May 2026, Steeve conquered the summit of **Mount Fako (Mount Cameroon, 4,095m)**, the highest peak in Central Africa! This same fighting spirit drives his coding and creative work every single day.'
+          : 'Une preuve éclatante de ténacité ! En mai 2026, Steeve a conquis le sommet du **Mont Fako (Mont Cameroun, 4 095 m)**, le plus haut pic d\'Afrique Centrale ! Cette même détermination inébranlable se retrouve dans chacun de ses projets tech et design.',
+        destinations: ['info-mount-fako', 'sec-education', 'sec-about'],
+        autoNavigate: wantOpen
+      };
+    }
+    if (q.includes('pycon') || q.includes('cits') || q.includes('hackathon') || q.includes('orange digital') || q.includes('aims') || q.includes('science week')) {
+      return {
+        reply: isEn
+          ? 'Steeve is a passionate community builder who loves learning in public! He actively took part in **PyCon Cameroon 2026**, **CITS26 (Cameroon International Tech Summit)**, the **Code for Safety Hackathon** at the University of Buea, **Code for the Planet** (Orange Digital Center), and **Africa Science Week** (AIMS)!'
+          : 'Steeve adore apprendre en public et dynamiser l\'écosystème tech ! Il a participé avec brio à **PyCon Cameroon 2026**, au **CITS26 (Cameroon International Tech Summit)**, au hackathon **Code for Safety** à Buea, à **Code for the Planet** (Orange Digital Center) et à l\'**Africa Science Week** (AIMS) !',
+        destinations: ['sec-education', 'sec-about-passion', 'sec-about-career'],
+        autoNavigate: wantOpen
+      };
+    }
+    if (q.includes('data science') || q.includes('machine learning') || q.includes('deep learning')) {
+      return {
+        reply: isEn
+          ? 'Steeve has a huge passion for the future of AI! While currently focusing on **Full-Stack Web & Mobile Development** and smart tools like **XENA AI**, his long-term specialization goal is **Data Science and AI-driven applications**. Explore his tech stack and projects below:'
+          : 'Steeve est passionné par l\'avenir de l\'IA ! Tout en excellant en **Développement Web & Mobile** et en concevant des outils comme **XENA AI**, son grand objectif à long terme est la spécialisation en **Data Science et applications guidées par l\'IA**. Découvrez ses projets ci-dessous :',
+        destinations: ['sec-projects-tech', 'sec-skills', 'about-tekmen'],
+        autoNavigate: wantOpen
+      };
+    }
+    if (q.includes('video') || q.includes('montage') || q.includes('premiere') || q.includes('capcut') || q.includes('showreel')) {
+      return {
+        reply: isEn
+          ? 'Steeve\'s video editing skills are electrifying! Mastering **Adobe Premiere Pro**, **CapCut Pro**, KineMaster, InShot, and YouCut on PC and mobile, he crafts high-impact showreels and commercials. Check out his video showreel gallery below:'
+          : 'Le talent de Steeve en montage vidéo est sensationnel ! Maîtrisant **Adobe Premiere Pro**, **CapCut Pro**, KineMaster, InShot et YouCut sur PC et mobile, il donne vie à des visuels rythmés et captivants. Découvrez sa galerie vidéo :',
         destinations: ['sec-projects-video', 'modal-video-1', 'sec-skills-video'],
         autoNavigate: wantOpen
       };
     }
-    if (q.includes('design') || q.includes('graphi') || q.includes('flyer') || q.includes('affiche') || q.includes('logo') || q.includes('packaging')) {
+    if (q.includes('design') || q.includes('graphi') || q.includes('flyer') || q.includes('affiche') || q.includes('logo') || q.includes('packaging') || q.includes('etiquette') || q.includes('visuel')) {
+      if (q.includes('packaging') || q.includes('etiquette') || q.includes('logo') || q.includes('identite') || q.includes('carte de visite') || q.includes('brand')) {
+        return {
+          reply: isEn
+            ? 'Here is Steeve\'s **Brand Identity & Packaging** collection (Danielle/Danie juices, Berger, Yogurt labels, Manou Pretty Design cards, JZ Pressing banners) — pure visual craftsmanship!'
+            : 'Voici la superbe collection **Identité & Packaging** de Steeve (étiquettes jus Danielle/Danie, Berger, Yaourt, cartes de visite Manou Pretty Design, banderole JZ Pressing) — un vrai régal visuel !',
+          destinations: ['cat-branding', 'sec-projects-graphic', 'sec-skills-graphic'],
+          autoNavigate: true
+        };
+      }
       return {
         reply: isEn
-          ? 'Steeve has **71 graphic design works** across 5 categories (Business Flyers, Events, Birthdays, Branding & Packaging, Social Media).'
-          : 'Steeve présente **71 réalisations en Design Graphique** réparties en 5 catégories (Entreprises, Événements, Anniversaires, Identité & Packaging, Réseaux Sociaux).',
-        destinations: ['sec-projects-graphic', 'sec-projects-graphic-cats', 'cat-branding'],
+          ? 'Steeve has created over **71 validated graphic design pieces** organized into 5 rich categories, perfected on Photoshop, Illustrator, Figma, Canva, and PixelLab! Prepare to be impressed:'
+          : 'Steeve compte plus de **71 créations graphiques remarquables** réparties en 5 univers thématiques, conçues avec Photoshop, Illustrator, Figma, Canva et PixelLab ! Laissez-vous inspirer :',
+        destinations: ['sec-projects-graphic', 'sec-projects-graphic-cats', 'cat-branding', 'sec-skills-graphic'],
         autoNavigate: wantOpen
       };
     }
-    if (q.includes('etude') || q.includes('parcours') || q.includes('ecole') || q.includes('universite') || q.includes('buea') || q.includes('education')) {
+    if (q.includes('etude') || q.includes('parcours') || q.includes('ecole') || q.includes('universite') || q.includes('buea') || q.includes('education') || q.includes('diplome') || q.includes('gce') || q.includes('imhotep')) {
       return {
         reply: isEn
-          ? 'Steeve obtained his **GCE Advanced Level in 2024** at **IMHOTEP GREAT SCHOOL** and is a **Level 300 Computer Science student** at the **University of Buea**.'
-          : 'Steeve a obtenu son **GCE Advanced Level en 2024** à **IMHOTEP GREAT SCHOOL** et est étudiant de **niveau 300 en Informatique à l\'Université de Buea**.',
-        destinations: ['sec-education', 'file-cv'],
+          ? 'Steeve earned his **GCE Advanced Level in 2024** at **IMHOTEP GREAT SCHOOL** and is now a dedicated **Level 300 BSc Computer Science student** at the **University of Buea** (Faculty of Science), continuously learning via freeCodeCamp, W3Schools, and tech bootcamps!'
+          : 'Steeve a obtenu son **GCE Advanced Level en 2024** à **IMHOTEP GREAT SCHOOL** et brille actuellement comme **étudiant de niveau 300 (3e année de BSc) en Informatique à l\'Université de Buea**, avec un apprentissage continu sur freeCodeCamp, W3Schools et des bootcamps de pointe !',
+        destinations: ['sec-education', 'file-cv', 'info-fonds-proto'],
         autoNavigate: wantOpen
       };
     }
-    if (q.includes('contact') || q.includes('whatsapp') || q.includes('telephone') || q.includes('linkedin') || q.includes('github') || q.includes('cv')) {
+    if (q.includes('contact') || q.includes('joindre') || q.includes('whatsapp') || q.includes('telephone') || q.includes('linkedin') || q.includes('github') || q.includes('cv') || q.includes('resume')) {
       return {
         reply: isEn
-          ? 'You can contact Steeve via WhatsApp/Phone at **+237 697 368 251**, visit his **LinkedIn** or **GitHub (TECHMAN237)**, or download his **CV (PDF)**:'
-          : 'Vous pouvez contacter Steeve par téléphone/WhatsApp au **+237 697 368 251**, visiter son **LinkedIn** ou **GitHub (TECHMAN237)**, ou télécharger son **C.V (PDF)** :',
+          ? 'Connecting with Steeve is fast and easy! Reach out to him directly on WhatsApp or phone at **+237 697 368 251**, connect on **LinkedIn** and **GitHub (TECHMAN237)**, or download his **CV (PDF)** below:'
+          : 'Collaborer avec Steeve, c\'est un plaisir ! Joignez-le directement sur WhatsApp ou par téléphone au **+237 697 368 251**, suivez ses profils **LinkedIn** et **GitHub (TECHMAN237)**, ou téléchargez son **C.V (PDF)** ci-dessous :',
         destinations: ['contact-whatsapp', 'contact-linkedin', 'contact-github', 'file-cv'],
         autoNavigate: false
       };
@@ -169,8 +228,8 @@
     if (q.includes('temoignage') || q.includes('avis') || q.includes('testimonial')) {
       return {
         reply: isEn
-          ? 'Here are the testimonials from Steeve\'s clients, partners, and peers:'
-          : 'Voici la page des témoignages des clients et partenaires de Steeve :',
+          ? 'Steeve\'s clients and partners (Asaph N., Laurent, Komze William, Ariel Kafto, Ange Youmsi, Jordan Azapgue) unanimously praise his speed, creativity, high reliability, and infectious positive energy! Read all reviews here:'
+          : 'Les clients et partenaires de Steeve (Asaph N., Laurent, Komze William, Ariel Kafto, Ange Youmsi, Jordan Azapgue) adorent sa rapidité d\'exécution, sa fiabilité à toute épreuve et sa créativité débordante ! Lisez leurs retours ici :',
         destinations: ['page-testimonials'],
         autoNavigate: false
       };
@@ -178,26 +237,26 @@
     if (q.includes('competence') || q.includes('skill') || q.includes('service') || q.includes('techno') || q.includes('react')) {
       return {
         reply: isEn
-          ? 'Steeve\'s skills include **Web & Mobile Development** (HTML/CSS, JS, React, Python), **Graphic Design**, **Video Editing**, **Content Creation**, and **Teaching**.'
-          : 'Les compétences de Steeve couvrent le **Développement Web & Mobile** (HTML/CSS, JS, React, Python), le **Design Graphique**, le **Montage Vidéo**, la **Création de Contenu** et l\'**Enseignement**.',
-        destinations: ['sec-skills', 'sec-skills-graphic', 'sec-skills-video'],
+          ? 'Steeve is a multi-talented powerhouse! His capabilities span **Web & Mobile Development** (HTML/CSS, JS, React, React Native, Python, Spline 3D), **Graphic Design** (Photoshop, Illustrator, Figma, Canva), **Video Editing** (Premiere Pro, CapCut Pro), **Content Creation**, and **STEM Tutoring**!'
+          : 'Steeve est un véritable couteau suisse du numérique ! Il maîtrise le **Développement Web & Mobile** (HTML/CSS, JS, React, React Native, Python, Spline 3D), le **Design Graphique** (Photoshop, Illustrator, Figma, Canva), le **Montage Vidéo** (Premiere Pro, CapCut Pro), la **Création de Contenu** et l\'**Enseignement** !',
+        destinations: ['sec-skills', 'sec-skills-graphic', 'sec-skills-video', 'sec-skills-teach'],
         autoNavigate: wantOpen
       };
     }
-    if (q.includes('projet') || q.includes('project') || q.includes('web')) {
+    if (q.includes('projet') || q.includes('project') || q.includes('web') || q.includes('realisation')) {
       return {
         reply: isEn
-          ? 'Here are Steeve\'s **Tech & Web Projects** (SAFECHILD, Rock Attitude, GO CLONE, DevOps Portfolio, My Portfolio), **Graphic Design Gallery**, and **Video Showreel**:'
-          : 'Voici les **Projets Tech & Web** de Steeve (SAFECHILD, Rock Attitude, GO CLONE, Portfolio DevOps, Mon Portfolio), sa **Galerie Design** et ses **Vidéos** :',
-        destinations: ['sec-projects-tech', 'sec-projects-graphic', 'sec-projects-video'],
+          ? 'Prepare to be inspired by Steeve\'s creations! Explore his **Web & Tech Projects** (SAFECHILD, Rock Attitude, GO CLONE, DevOps Portfolio, My Portfolio), his **Graphic Design Gallery** (71 visuals), and his dynamic **Video Showreel**:'
+          : 'Plongez au cœur des créations de Steeve ! Découvrez ses **Projets Tech & Web** (SAFECHILD, Rock Attitude, GO CLONE, Portfolio DevOps, Mon Portfolio), sa **Galerie Design Graphique** (71 visuels) et son **Showreel Vidéo** percutant :',
+        destinations: ['sec-projects-tech', 'sec-projects-graphic', 'sec-projects-video', 'page-safechild'],
         autoNavigate: wantOpen
       };
     }
     return {
       reply: isEn
-        ? '**Steeve Zali (TECHMAN)** is a Level 300 Computer Science student at the University of Buea, Web Developer, Graphic Designer, and Video Editor. Explore his sections below:'
-        : '**Steeve Zali (TECHMAN)** est étudiant de niveau 300 en Informatique à l\'Université de Buea, développeur web, designer graphique et monteur vidéo. Voici les accès rapides :',
-      destinations: ['sec-about', 'sec-projects-tech', 'sec-projects-graphic', 'contact-whatsapp'],
+        ? '**Steeve Zali (alias TECHMAN)** is one of the most promising young tech talents in Cameroon! A passionate Level 300 Computer Science student at the University of Buea, versatile full-stack builder, visionary behind **TekMen Revolution**, graphic artist with 71+ designs, video editor, and Mount Fako summit conqueror. He uses technology to transform lives!'
+        : '**Steeve Zali (alias TECHMAN)** est l\'un des jeunes bâtisseurs tech les plus prometteurs du Cameroun ! Étudiant passionné de niveau 300 en Informatique à l\'Université de Buea, développeur full-stack créatif, fondateur de **TekMen Revolution**, designer aux 71+ créations, monteur vidéo et vainqueur du sommet du Mont Fako. Il met son énergie au service de l\'impact social !',
+      destinations: ['sec-about', 'sec-projects-tech', 'about-tekmen', 'contact-whatsapp'],
       autoNavigate: wantOpen
     };
   }
@@ -373,7 +432,17 @@
         window.addlinks();
         break;
       case 'sec-education':
+      case 'info-fonds-proto':
+      case 'info-mount-fako':
         window.adddiv1();
+        break;
+      case 'project-xena':
+        window.addButtons();
+        break;
+      case 'about-tekmen':
+        window.addAbout();
+        highlightSubMenuIndex(2);
+        window.renderSubContent(window.getT('about_career'), window.getT('about_career_desc'));
         break;
       default:
         return false;
@@ -393,34 +462,38 @@
   const UI_TEXT = {
     fr: {
       title: 'TECHMAN AI',
-      subtitle: 'Assistant intelligent du portfolio',
-      placeholder: 'Posez une question ou cherchez un projet...',
+      subtitle: 'Fan n°1 & Guide de Steeve Zali',
+      placeholder: 'Posez une question sur Steeve ou ses projets...',
       send: 'Envoyer',
-      welcome: 'Bonjour ! Je suis **TECHMAN AI**, l\'assistant de Steeve Zali (TECHMAN). Je peux vous diriger vers n\'importe quelle section ou répondre à vos questions sur son parcours, ses projets et ses compétences.',
-      typing: 'TECHMAN AI répond...',
+      welcome: 'Bonjour et bienvenue ! Je suis **TECHMAN AI**, le fan n°1 et guide officiel de **Steeve Zali** et de **TekMen Revolution** ! Posez-moi toutes vos questions sur son parcours, ses projets innovants (**RAYDAR**, **SafeChild**, **XENA AI**), ses créations ou son ascension du Mont Fako !',
+      typing: 'TECHMAN AI répond avec passion...',
       clear: 'Effacer la conversation',
       close: 'Fermer',
       chips: [
-        { label: 'Voir les projets', query: 'Montre-moi tes projets' },
-        { label: 'Design Graphique', query: 'Je veux voir tes réalisations en design graphique' },
-        { label: 'Qui est Steeve ?', query: 'Parle-moi de Steeve Zali et de son parcours' },
-        { label: 'Contact & CV', query: 'Comment contacter Steeve et télécharger son CV ?' }
+        { label: '🚀 Qui est Steeve ?', query: 'Parle-moi de Steeve Zali et de son parcours !' },
+        { label: '🛡️ RAYDAR & SafeChild', query: 'C\'est quoi l\'initiative RAYDAR et SafeChild ?' },
+        { label: '🤖 Projet XENA AI', query: 'Présente-moi le projet XENA AI !' },
+        { label: '⚡ TekMen Revolution', query: 'Parle-moi de TekMen Revolution et de sa vision !' },
+        { label: '🎨 71 Designs Graphiques', query: 'Montre-moi ses 71 réalisations en design graphique' },
+        { label: '🏔️ Mont Fako (4095m)', query: 'Parle-moi de son ascension du sommet du Mont Fako !' }
       ]
     },
     en: {
       title: 'TECHMAN AI',
-      subtitle: 'Intelligent Portfolio Assistant',
-      placeholder: 'Ask a question or find a project...',
+      subtitle: '#1 Fan & Guide to Steeve Zali',
+      placeholder: 'Ask about Steeve, his projects, or vision...',
       send: 'Send',
-      welcome: 'Hi! I am **TECHMAN AI**, Steeve Zali\'s (TECHMAN) portfolio assistant. I can take you directly to any project or section, or answer questions about his skills, background, and services.',
-      typing: 'TECHMAN AI is replying...',
+      welcome: 'Welcome! I am **TECHMAN AI**, the #1 fan and official guide of **Steeve Zali** and **TekMen Revolution**! Ask me anything about his journey, his breakthrough projects (**RAYDAR**, **SafeChild**, **XENA AI**), his 71+ graphic designs, or his Mount Fako summit victory!',
+      typing: 'TECHMAN AI is enthusiastically replying...',
       clear: 'Clear chat',
       close: 'Close',
       chips: [
-        { label: 'View Projects', query: 'Show me your projects' },
-        { label: 'Graphic Design', query: 'Show me your graphic design portfolio' },
-        { label: 'About Steeve', query: 'Who is Steeve Zali and what is his background?' },
-        { label: 'Contact & CV', query: 'How can I contact Steeve and download his CV?' }
+        { label: '🚀 Who is Steeve?', query: 'Tell me all about Steeve Zali and his journey!' },
+        { label: '🛡️ RAYDAR & SafeChild', query: 'What is the RAYDAR and SafeChild initiative?' },
+        { label: '🤖 XENA AI Project', query: 'Tell me about the XENA AI companion project!' },
+        { label: '⚡ TekMen Revolution', query: 'What is TekMen Revolution and its vision?' },
+        { label: '🎨 71 Graphic Designs', query: 'Show me Steeve\'s 71 graphic design creations' },
+        { label: '🏔️ Mount Fako (4095m)', query: 'Tell me about his Mount Fako summit victory!' }
       ]
     }
   };

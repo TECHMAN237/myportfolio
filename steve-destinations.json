@@ -348,5 +348,55 @@
     "type": "action",
     "destination": "javascript:toggleLanguage()",
     "action": "toggleLanguage()"
+  },
+  {
+    "id": "project-raydar",
+    "name": "RAYDAR & SafeChild Initiative",
+    "label_fr": "Initiative RAYDAR & SafeChild",
+    "label_en": "RAYDAR & SafeChild Initiative",
+    "description": "Steeve's child safety and missing-children alert project (Code4Safety team, interview on Radio Dash Media), linked with the SafeChild platform.",
+    "type": "route",
+    "destination": "safechild-info.html",
+    "action": "window.location.href = 'safechild-info.html'"
+  },
+  {
+    "id": "project-xena",
+    "name": "XENA AI — Student AI Companion",
+    "label_fr": "XENA AI (Agent IA Étudiant)",
+    "label_en": "XENA AI (Student AI Agent)",
+    "description": "Steeve's student AI companion with voice reminders, study tracking, and task execution, presented at Ignite Your Future Tech Fair 2026.",
+    "type": "section",
+    "destination": "index.html?dest=sec-skills",
+    "action": "navigatePortfolioSection('sec-skills')"
+  },
+  {
+    "id": "about-tekmen",
+    "name": "TekMen Revolution — Agency & Vision",
+    "label_fr": "TekMen Revolution (Vision & Agence)",
+    "label_en": "TekMen Revolution (Vision & Agency)",
+    "description": "Steeve Zali's digital innovation brand and agency initiative offering web development, design, video editing, and community impact solutions.",
+    "type": "sub-section",
+    "destination": "index.html?dest=sec-about-career",
+    "action": "navigatePortfolioSection('sec-about-career')"
+  },
+  {
+    "id": "info-fonds-proto",
+    "name": "Fonds Proto — APME Laureate",
+    "label_fr": "Fonds Proto (Lauréat APME)",
+    "label_en": "Fonds Proto (APME Laureate)",
+    "description": "Team competition where Steeve and team ranked 17th out of 2,915+ applications, securing 1.5M FCFA funding in the 6th edition of Fonds Proto.",
+    "type": "section",
+    "destination": "index.html?dest=sec-education",
+    "action": "navigatePortfolioSection('sec-education')"
+  },
+  {
+    "id": "info-mount-fako",
+    "name": "Mount Fako Summit — 4,095m Peak",
+    "label_fr": "Ascension Mont Fako (4095m)",
+    "label_en": "Mount Fako Summit (4095m)",
+    "description": "Steeve reached the summit of Mount Cameroon (Mount Fako, 4,095 meters, highest peak in Central Africa) in May 2026.",
+    "type": "section",
+    "destination": "index.html?dest=sec-education",
+    "action": "navigatePortfolioSection('sec-education')"
   }
 ]
