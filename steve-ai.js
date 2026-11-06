@@ -462,10 +462,10 @@
   const UI_TEXT = {
     fr: {
       title: 'TECHMAN AI',
-      subtitle: 'Fan n°1 & Guide de Steeve Zali',
+      subtitle: 'Guide officiel & Assistant de Steeve Zali',
       placeholder: 'Posez une question sur Steeve ou ses projets...',
       send: 'Envoyer',
-      welcome: 'Bonjour et bienvenue ! Je suis **TECHMAN AI**, le fan n°1 et guide officiel de **Steeve Zali** et de **TekMen Revolution** ! Posez-moi toutes vos questions sur son parcours, ses projets innovants (**RAYDAR**, **SafeChild**, **XENA AI**), ses créations ou son ascension du Mont Fako !',
+      welcome: 'Bonjour et bienvenue ! Je suis **TECHMAN AI**, le guide officiel et assistant de **Steeve Zali** et de **TekMen Revolution** ! Posez-moi toutes vos questions sur son parcours, ses projets innovants (**RAYDAR**, **SafeChild**, **XENA AI**), ses 71 créations en design ou son ascension du Mont Fako !',
       typing: 'TECHMAN AI répond avec passion...',
       clear: 'Effacer la conversation',
       close: 'Fermer',
@@ -480,10 +480,10 @@
     },
     en: {
       title: 'TECHMAN AI',
-      subtitle: '#1 Fan & Guide to Steeve Zali',
+      subtitle: 'Official Guide & Assistant to Steeve Zali',
       placeholder: 'Ask about Steeve, his projects, or vision...',
       send: 'Send',
-      welcome: 'Welcome! I am **TECHMAN AI**, the #1 fan and official guide of **Steeve Zali** and **TekMen Revolution**! Ask me anything about his journey, his breakthrough projects (**RAYDAR**, **SafeChild**, **XENA AI**), his 71+ graphic designs, or his Mount Fako summit victory!',
+      welcome: 'Welcome! I am **TECHMAN AI**, the official guide and assistant of **Steeve Zali** and **TekMen Revolution**! Ask me anything about his journey, his breakthrough projects (**RAYDAR**, **SafeChild**, **XENA AI**), his 71+ graphic designs, or his Mount Fako summit victory!',
       typing: 'TECHMAN AI is enthusiastically replying...',
       clear: 'Clear chat',
       close: 'Close',

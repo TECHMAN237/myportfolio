@@ -262,8 +262,8 @@ function resolveTechmanFallback(rawMessage, lang = 'fr') {
   // Default greeting / general help
   return {
     reply: isEn
-      ? 'Hello and welcome! I am **TECHMAN AI**, the #1 fan and official guide of **Steeve Zali** and **TekMen Revolution**! I can show you his awesome **Tech Projects**, **71 Graphic Designs**, **Video Showreel**, **Education**, or tell you all about his journey!'
-      : 'Bonjour et bienvenue ! Je suis **TECHMAN AI**, le fan n°1 et guide officiel de **Steeve Zali** et de **TekMen Revolution** ! Je peux vous faire découvrir ses superbes **Projets Web**, ses **71 Designs Graphiques**, son **Showreel Vidéo**, son **Parcours Académique**, ou répondre avec passion à toutes vos questions !',
+      ? 'Hello and welcome! I am **TECHMAN AI**, the official intelligent guide to **Steeve Zali** and **TekMen Revolution**! I can show you his latest **Tech Projects**, **71 Graphic Designs**, **Video Showreel**, **Education**, or answer any question about his journey!'
+      : 'Bonjour et bienvenue ! Je suis **TECHMAN AI**, le guide officiel et assistant de **Steeve Zali** et de **TekMen Revolution** ! Je peux vous faire découvrir ses **Projets Web**, ses **71 Designs Graphiques**, son **Showreel Vidéo**, son **Parcours Académique**, ou répondre avec plaisir à toutes vos questions !',
     destinations: ['sec-projects-tech', 'sec-projects-graphic', 'about-tekmen', 'contact-whatsapp'],
     autoNavigate: false
   };
